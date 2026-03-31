@@ -1,0 +1,19 @@
+id: P3-PROJ-0001
+object_type: project
+title: Human Friendly Title
+slug: human-friendly-title
+version: '0.1'
+status: in_progress
+owner: TBD
+path: 03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/P3-PROJ-0001__human-friendly-title
+primary_doc: P3-PROJ-0001__human-friendly-title__v0.1.md
+parent_id: P3-PROG-0001
+created_on: '2026-03-29'
+updated_on: '2026-03-29'
+labels:
+- project
+- scaffold
+- example
+dependencies: []
+children:
+- task-packets/TASK-FEAT-0001__human-friendly-title

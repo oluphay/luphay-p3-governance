@@ -1,0 +1,28 @@
+{
+  "register": "portfolio-register",
+  "generated_on": "2026-03-29",
+  "items": [
+    {
+      "id": "P3-PORT-0001",
+      "object_type": "portfolio",
+      "title": "Human Friendly Title",
+      "slug": "human-friendly-title",
+      "version": "0.1",
+      "status": "active",
+      "owner": "TBD",
+      "path": "03_portfolios/P3-PORT-0001__human-friendly-title",
+      "primary_doc": "P3-PORT-0001__human-friendly-title__v0.1.md",
+      "created_on": "2026-03-29",
+      "updated_on": "2026-03-29",
+      "labels": [
+        "portfolio",
+        "scaffold",
+        "example"
+      ],
+      "dependencies": [],
+      "children": [
+        "programs/P3-PROG-0001__human-friendly-title"
+      ]
+    }
+  ]
+}

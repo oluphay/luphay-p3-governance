@@ -1,0 +1,17 @@
+# Ephemeral agent runtime outputs
+09_runs/
+
+# Claude Code agent surfaces
+.claude/
+
+# Codex agent surfaces
+.codex/
+
+# OS artifacts
+Thumbs.db
+.DS_Store
+
+# Editor artifacts
+.vscode/
+*.swp
+*~
