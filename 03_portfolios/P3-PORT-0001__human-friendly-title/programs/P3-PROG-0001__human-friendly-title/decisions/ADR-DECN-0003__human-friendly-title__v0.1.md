@@ -5,6 +5,9 @@ version: 0.1
 scope_level: Program
 status: accepted
 decided_on: 2026-03-29
+labels:
+- scaffold
+- placeholder
 ---
 
 # ADR-DECN-0003 — Human Friendly Title
