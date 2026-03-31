@@ -72,4 +72,42 @@ foreach ($portfolioHome in $portfolioHomes) {
     }
 }
 
+# =============================================================================
+# EXTENSION BLOCK — Task Packet packet.yaml Presence Check
+# Fails hard (exit 1) if any task-packet folder is missing packet.yaml.
+# =============================================================================
+
+Write-Host "`n[validate] Checking task-packet packet.yaml presence..." -ForegroundColor Cyan
+
+$taskPacketRoots = Get-ChildItem -Path $repoRoot -Recurse -Directory `
+    | Where-Object { $_.Name -eq "task-packets" }
+
+$missingPacketYaml = @()
+
+foreach ($root in $taskPacketRoots) {
+    # Each direct child of a task-packets/ folder is a task-packet home
+    $packetFolders = Get-ChildItem -Path $root.FullName -Directory
+    foreach ($folder in $packetFolders) {
+        $packetYamlPath = Join-Path $folder.FullName "packet.yaml"
+        if (-not (Test-Path $packetYamlPath)) {
+            $missingPacketYaml += $folder.FullName
+        }
+    }
+}
+
+if ($missingPacketYaml.Count -gt 0) {
+    Write-Host "[FAIL] packet.yaml missing from the following task-packet folder(s):" -ForegroundColor Red
+    foreach ($path in $missingPacketYaml) {
+        Write-Host "       $path" -ForegroundColor Red
+    }
+    Write-Host "[FAIL] Validation failed - add packet.yaml to each task-packet folder above." -ForegroundColor Red
+    exit 1
+} else {
+    Write-Host "[PASS] All task-packet folders contain packet.yaml." -ForegroundColor Green
+}
+
+# =============================================================================
+# END EXTENSION BLOCK
+# =============================================================================
+
 Write-Host "Validation passed."
