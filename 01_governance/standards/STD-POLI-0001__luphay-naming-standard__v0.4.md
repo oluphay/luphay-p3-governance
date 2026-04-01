@@ -1,15 +1,28 @@
 # Luphay Naming Standard (LNS)
 
 **Document ID:** LNS-0001  
-**Version:** v0.4  
-**Status:** FROZEN  
-**Supersedes:** LNS v0.3, LNS v0.2, LNS v0.1, TNS v1, SNS v1, SNS Extended v1, IRNS v1, MANS v1, RNS v1  
+**Version:** v0.5  
+**Status:** Draft  
+**Supersedes:** LNS v0.4, LNS v0.3, LNS v0.2, LNS v0.1, TNS v1, SNS v1, SNS Extended v1, IRNS v1, MANS v1, RNS v1  
 **Layer:** Operational — daily-driver naming for all Luphay file families  
 **Governance layer:** STD-SYS-0001 (FROZEN) governs the enterprise governance tier; LNS governs the operational tier below it. These do not conflict.
 
 ---
 
 ## Change log
+
+### v0.5 — 2026-04-01
+- Added `INCD` and `RELS` class codes to §4 under new "Response & Delivery" category.
+- `INCD` covers Incident work: triage, containment, failure investigation, and emergency recovery.
+- `RELS` covers Release work: deployment approvals, cutovers, and package promotion.
+- This closes the gap between the LNS operational layer and the five canonical TPS v2.1 `packet_class` values. All five TPS classes now have explicit LNS counterparts, completing coverage across the full governance routing layer.
+- Mapping table in §4 updated to include `INCD → Incident` and `RELS → Release` bindings.
+- Mapping table column header corrected from "TNS class" to "LNS class".
+- §4 body text updated: "TNS class" references corrected to "LNS class" throughout.
+- §4 note updated to reference TPS v2.1 (was v2.0).
+- §10 Violation Reference updated with two new anti-pattern rows for INCD and RELS misclassification.
+- §11 Front Matter Minimum updated: `packet_subtype` example now uses LNS class codes (`FEAT`, `FIXE`, `RESR`, `SECU`, `INCD`, `RELS`) instead of loose natural-language words. This closes the loop between the filename layer and the front matter layer — the LNS class code is the canonical `packet_subtype` value.
+- Decision basis: ADR-DECN-0005.
 
 ### v0.4 — 2026-03-27
 - Added §9 P3MS — P3 Management Standard family covering Portfolio, Program, and Project hierarchy artifacts.
@@ -141,16 +154,25 @@ TASK-[CLASS]-[NNNN]__[slug]__vX.Y.md
 | `ADMN` | Admin — meetings, scheduling, or project overhead |
 | `DATA` | Data — migrations, modeling, or analytics tasks |
 
-**Governance fields belong in front matter only.** `packet_class` (governing question per TPS v2.0), `packet_subtype`, `governance_mode`, `packet_weight`, and `proof_burden` are governance state — not filename identity. The TNS class and the TPS `packet_class` coexist: the filename carries the functional class you reason with daily; front matter carries the formal governance classification.
+### Response & Delivery
+
+| Class | Type |
+| :--- | :--- |
+| `INCD` | Incident — triage, containment, failure investigation, or emergency recovery |
+| `RELS` | Release — deployment approvals, cutovers, or package promotion |
+
+**Governance fields belong in front matter only.** `packet_class` (governing question per TPS v2.1), `packet_subtype`, `governance_mode`, `packet_weight`, and `proof_burden` are governance state — not filename identity. The LNS class and the TPS `packet_class` coexist: the filename carries the functional class you reason with daily; front matter carries the formal governance classification.
 
 **Typical mapping for reference:**
 
-| TNS class | Typical TPS `packet_class` |
+| LNS class | Typical TPS `packet_class` |
 | :--- | :--- |
 | `FEAT`, `FIXE`, `DEBT`, `DOCS`, `DATA`, `INFR` | `Change` |
 | `RESR`, `ARCH` | `Discovery` |
 | `TEST`, `SECU`, `REVN` | `Assurance` |
 | `ADMN` | `Change` or `Discovery` depending on context |
+| `INCD` | `Incident` |
+| `RELS` | `Release` |
 
 **Minimum front matter for a task file:**
 
@@ -178,6 +200,8 @@ TASK-ARCH-0007__define-agent-routing-model__v0.1.md
 TASK-SECU-0031__api-key-rotation-policy__v1.0.md
 TASK-DOCS-0018__update-onboarding-guide__v0.1.md
 TASK-DEBT-0045__refactor-register-loader__v0.1.md
+TASK-INCD-0105__triage-database-connection-timeout__v0.1.md
+TASK-RELS-0022__approve-q2-platform-deployment__v1.0.md
 ```
 
 ---
@@ -432,12 +456,14 @@ Common naming errors and their fixes.
 | `STD-POLI-0015__data-retention-APPROVED__v1.2` | Status in slug | Remove; use front matter `status: approved` |
 | `TASK-CHNG-7__create-register__v1.0` | No leading zeros | Use `0007` |
 | `MED-LOGO-0001__luphay logo dark v1.2.svg` | Spaces in filename | Use hyphens and double underscores per formula |
-| `TASK-DISC-0011__evaluate-options__v0.1.md` | Governing-question class code (old v0.1 style) | Use TNS functional class — e.g. `RESR` or `ARCH` |
+| `TASK-DISC-0011__evaluate-options__v0.1.md` | Governing-question class code (old v0.1 style) | Use LNS functional class — e.g. `RESR` or `ARCH` |
 | `REC-MEET-20260327__weekly-sync__v1.md` | Old REC prefix; date in ID position | Use `ADR-MEET-[NNNN]__[YYYYMMDD]-weekly-sync__v1.md` |
 | `ADR-MEET-0047__weekly-sync__v1.md` | Meeting-type class missing date in slug | Add date: `ADR-MEET-0047__20260327-weekly-sync__v1.md` |
 | `DEC-DEC-0004__...` | Old DEC format (retired after DEC-0003) | Use `ADR-DECN-[NNNN]__[slug]__vX.Y.md` |
 | `PORTFOLIO-PORT-0001__...` | Old long-form hierarchy formula | Use `P3-PORT-0001__...` |
 | `PROJECT-PROJ-0012__...` | Old long-form hierarchy formula | Use `P3-PROJ-0012__...` |
+| `TASK-FIXE-0089__hotfix-db-connection-timeout__v0.1.md` | Incident work misclassified as Fix | Use `INCD` |
+| `TASK-REVN-0022__approve-q2-platform-deployment__v1.0.md` | Release work misclassified as Review | Use `RELS` |
 
 ---
 
@@ -460,7 +486,7 @@ Task files should additionally carry:
 
 ```yaml
 packet_class: Discovery | Change | Assurance | Incident | Release
-packet_subtype: [e.g. feature, bugfix, spike, compliance_review]
+packet_subtype: [e.g. FEAT, FIXE, RESR, SECU, INCD, RELS]
 governance_mode: Lean | Standard | Assured
 ```
 
@@ -486,6 +512,6 @@ Status, owner, priority, and classification live in front matter — never in th
 
 ---
 
-*LNS v0.4 — Luphay Technologies — Operational naming layer*  
+*LNS v0.5 — Luphay Technologies — Operational naming layer*  
 *Governance layer: STD-SYS-0001 (FROZEN)*  
-*Decision basis: DEC-0002, DEC-0003, ADR-DECN-0004*
+*Decision basis: DEC-0002, DEC-0003, ADR-DECN-0004, ADR-DECN-0005*
