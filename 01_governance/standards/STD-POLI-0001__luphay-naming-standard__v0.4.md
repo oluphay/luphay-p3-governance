@@ -2,7 +2,7 @@
 
 **Document ID:** LNS-0001  
 **Version:** v0.4  
-**Status:** Draft  
+**Status:** FROZEN  
 **Supersedes:** LNS v0.3, LNS v0.2, LNS v0.1, TNS v1, SNS v1, SNS Extended v1, IRNS v1, MANS v1, RNS v1  
 **Layer:** Operational — daily-driver naming for all Luphay file families  
 **Governance layer:** STD-SYS-0001 (FROZEN) governs the enterprise governance tier; LNS governs the operational tier below it. These do not conflict.

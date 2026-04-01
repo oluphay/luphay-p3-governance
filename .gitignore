@@ -1,17 +1,25 @@
-# Ephemeral agent runtime outputs
+# =========================
+# P3 repo publication rules
+# =========================
+
+# Exclude from GitHub for now
+03_portfolios/
+05_hub/
+
+# Ephemeral runtime outputs
 09_runs/
 
-# Claude Code agent surfaces
+# Agent working surfaces
 .claude/
-
-# Codex agent surfaces
 .codex/
 
 # OS artifacts
 Thumbs.db
 .DS_Store
+desktop.ini
 
 # Editor artifacts
 .vscode/
+.idea/
 *.swp
 *~
