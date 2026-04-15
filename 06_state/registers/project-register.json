@@ -1,52 +1,52 @@
 {
   "register": "project-register",
-  "generated_on": "2026-04-01",
+  "generated_on": "2026-04-15",
   "items": [
     {
+      "children": [
+        "task-packets/TASK-FEAT-0001__human-friendly-title"
+      ],
       "labels": [
         "project",
         "scaffold",
         "example"
       ],
       "updated_on": "2026-03-29",
-      "status": "in_progress",
-      "version": "0.1",
       "title": "Human Friendly Title",
       "parent_id": "P3-PROG-0001",
-      "primary_doc": "P3-PROJ-0001__human-friendly-title__v0.1.md",
-      "slug": "human-friendly-title",
-      "id": "P3-PROJ-0001",
-      "owner": "TBD",
       "object_type": "project",
+      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/P3-PROJ-0001__human-friendly-title",
+      "version": "0.1",
+      "status": "in_progress",
+      "created_on": "2026-03-29",
+      "primary_doc": "P3-PROJ-0001__human-friendly-title__v0.1.md",
+      "owner": "TBD",
+      "id": "P3-PROJ-0001",
+      "dependencies": [],
+      "slug": "human-friendly-title"
+    },
+    {
       "children": [
         "task-packets/TASK-FEAT-0001__human-friendly-title"
       ],
-      "dependencies": [],
-      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/P3-PROJ-0001__human-friendly-title",
-      "created_on": "2026-03-29"
-    },
-    {
       "labels": [
-        "p3",
-        "live",
-        "operational"
+        "project",
+        "scaffold",
+        "example"
       ],
-      "updated_on": "2026-04-01",
-      "status": "review",
-      "version": "0.1",
-      "title": "Activate P3 for Daily Use",
-      "parent_id": "P3-PROG-0002",
-      "primary_doc": "P3-PROJ-0002__activate-p3-for-daily-use__v0.1.md",
-      "slug": "activate-p3-for-daily-use",
-      "id": "P3-PROJ-0002",
-      "owner": "Alpha",
+      "updated_on": "2026-03-29",
+      "title": "Human Friendly Title",
+      "parent_id": "P3-PROG-0001",
       "object_type": "project",
-      "children": [
-        "task-packets/TASK-FEAT-0002__activate-p3-live-workflow"
-      ],
+      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/P3-PROJ-0001__human-friendly-title",
+      "version": "0.1",
+      "status": "in_progress",
+      "created_on": "2026-03-29",
+      "primary_doc": "P3-PROJ-0001__human-friendly-title__v0.1.md",
+      "owner": "TBD",
+      "id": "P3-PROJ-0001",
       "dependencies": [],
-      "path": "03_portfolios/P3-PORT-0002__p3-live-operations/programs/P3-PROG-0002__operational-readiness/projects/P3-PROJ-0002__activate-p3-for-daily-use",
-      "created_on": "2026-04-01"
+      "slug": "human-friendly-title"
     }
   ]
 }

@@ -1,12 +1,17 @@
 # Framework Register
 
-Global authority index for all `STD-REFR` reference files across the repo.
-Nested in `01_governance/framework/`. This is the single source of truth — no local registers.
+Global authority index for `STD-REFR` reference artifacts currently retained
+across the repo.
 
-| ID | Family | Scope | Title | Version | Status | Path |
-| --- | --- | --- | --- | --- | --- | --- |
-| STD-REFR-0001 | STD-REFR | Enterprise | Portfolio Program Project Governance Framework | 0.2 | active | `01_governance/framework/STD-REFR-0001__portfolio-program-project-governance-framework__v0.2.md` |
-| STD-REFR-0002 | STD-REFR | Enterprise | Portfolio Home Pattern | 0.1 | active | `03_portfolios/STD-REFR-0002__portfolio-home-pattern__v0.1.md` |
-| STD-REFR-0003 | STD-REFR | Enterprise | Program Home Pattern | 0.1 | active | `03_portfolios/P3-PORT-0001__human-friendly-title/programs/STD-REFR-0003__program-home-pattern__v0.1.md` |
-| STD-REFR-0004 | STD-REFR | Enterprise | Project Home Pattern | 0.1 | active | `03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/STD-REFR-0004__project-home-pattern__v0.1.md` |
-| STD-REFR-0005 | STD-REFR | Enterprise | P3 Governance Canonical Repo Tree | 0.4 | active | `04_docs/STD-REFR-0005__p3-governance-canonical-repo-tree__v0.4.md` |
+Current operating repo truth comes from `04_docs/REPO_BASELINE.md` together
+with the root control plane. The v0.4 canonical tree reference remains an
+intent/reference artifact only; it is not the live current-state inventory.
+
+| ID | Family | Scope | Title | Version | Status | Path | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| STD-REFR-0001 | STD-REFR | Not declared | Portfolio–Program–Project Governance Framework | v0.2 | active | `01_governance/framework/STD-REFR-0001__portfolio-program-project-governance-framework__v0.2.md` | Governs the P3 portfolio/program/project framework model. |
+| STD-REFR-0001 | STD-REFR | Not declared | P3 Governance Canonical Repo Tree | v0.4 | reference | `01_governance/standards/STD-REFR-0001__p3-governance-canonical-repo-tree__v0.4.md` | Intent reference only; use `04_docs/REPO_BASELINE.md` plus root control docs for live posture. |
+| STD-REFR-0002 | STD-REFR | Not declared | Portfolio Home Pattern | 0.1 | active | `03_portfolios/STD-REFR-0002__portfolio-home-pattern__v0.1.md` | Pattern artifact; does not imply additional live portfolio lanes. |
+| STD-REFR-0003 | STD-REFR | Not declared | Program Home Pattern | 0.1 | active | `03_portfolios/P3-PORT-0001__human-friendly-title/programs/STD-REFR-0003__program-home-pattern__v0.1.md` | Sample/template pattern only. |
+| STD-REFR-0004 | STD-REFR | Not declared | Project Home Pattern | 0.1 | active | `03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/STD-REFR-0004__project-home-pattern__v0.1.md` | Sample/template pattern only. |
+| STD-REFR-0006 | STD-REFR | Not declared | Agentic Native Repo Primary Reference — Codex + Claude Code + Human-Friendly | v1.0 | primary reference | `01_governance/standards/STD-REFR-0006__agentic-native-repo-primary-reference__v1.0.md` | External alignment reference used for repo-shape comparison. |

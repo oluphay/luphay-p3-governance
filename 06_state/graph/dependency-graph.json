@@ -1,5 +1,5 @@
 {
-  "generated_on": "2026-04-01",
+  "generated_on": "2026-04-15",
   "nodes": [
     {
       "id": "P3-PORT-0001",
@@ -17,19 +17,19 @@
       "path": "03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title"
     },
     {
-      "id": "P3-PORT-0002",
+      "id": "P3-PORT-0001",
       "type": "portfolio",
-      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations"
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title"
     },
     {
-      "id": "P3-PROG-0002",
+      "id": "P3-PROG-0001",
       "type": "program",
-      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations\\programs\\P3-PROG-0002__operational-readiness"
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title"
     },
     {
-      "id": "P3-PROJ-0002",
+      "id": "P3-PROJ-0001",
       "type": "project",
-      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations\\programs\\P3-PROG-0002__operational-readiness\\projects\\P3-PROJ-0002__activate-p3-for-daily-use"
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title"
     },
     {
       "id": "TASK-FEAT-0001",
@@ -37,9 +37,9 @@
       "path": "03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title\\task-packets\\TASK-FEAT-0001__human-friendly-title"
     },
     {
-      "id": "TASK-FEAT-0002",
+      "id": "TASK-FEAT-0001",
       "type": "task-packet",
-      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations\\programs\\P3-PROG-0002__operational-readiness\\projects\\P3-PROJ-0002__activate-p3-for-daily-use\\task-packets\\TASK-FEAT-0002__activate-p3-live-workflow"
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title\\task-packets\\TASK-FEAT-0001__human-friendly-title"
     }
   ],
   "edges": [
@@ -54,13 +54,13 @@
       "relation": "contains"
     },
     {
-      "source": "P3-PORT-0002",
-      "target": "P3-PROG-0002",
+      "source": "P3-PORT-0001",
+      "target": "P3-PROG-0001",
       "relation": "contains"
     },
     {
-      "source": "P3-PROG-0002",
-      "target": "P3-PROJ-0002",
+      "source": "P3-PROG-0001",
+      "target": "P3-PROJ-0001",
       "relation": "contains"
     },
     {
@@ -69,8 +69,8 @@
       "relation": "contains"
     },
     {
-      "source": "P3-PROJ-0002",
-      "target": "TASK-FEAT-0002",
+      "source": "P3-PROJ-0001",
+      "target": "TASK-FEAT-0001",
       "relation": "contains"
     }
   ]

@@ -1,6 +1,6 @@
 {
   "register": "task-register",
-  "generated_on": "2026-04-01",
+  "generated_on": "2026-04-15",
   "items": [
     {
       "id": "TASK-FEAT-0001",
@@ -30,34 +30,31 @@
       "deliverables": []
     },
     {
-      "id": "TASK-FEAT-0002",
+      "id": "TASK-FEAT-0001",
       "packet_class": "Change",
       "object_type": "task-packet",
-      "title": "Activate P3 Live Workflow",
-      "slug": "activate-p3-live-workflow",
+      "title": "[placeholder — replace with real task title]",
+      "slug": "human-friendly-title",
       "version": "v0.1",
-      "status": "done",
-      "owner": "Alpha",
-      "priority": "NOW",
-      "active_assignee": "codex",
-      "validation_status": "passed",
-      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations\\programs\\P3-PROG-0002__operational-readiness\\projects\\P3-PROJ-0002__activate-p3-for-daily-use\\task-packets\\TASK-FEAT-0002__activate-p3-live-workflow",
-      "primary_doc": "TASK-FEAT-0002__activate-p3-live-workflow__v0.1.md",
-      "parent_id": "P3-PROJ-0002",
-      "parent_portfolio": "P3-PORT-0002",
-      "parent_program": "P3-PROG-0002",
-      "created_on": "2026-04-01",
-      "updated_on": "2026-04-01",
+      "status": "draft",
+      "owner": "",
+      "priority": null,
+      "active_assignee": null,
+      "validation_status": null,
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title\\task-packets\\TASK-FEAT-0001__human-friendly-title",
+      "primary_doc": null,
+      "parent_id": "P3-PROJ-0001",
+      "parent_portfolio": "P3-PORT-0001",
+      "parent_program": "P3-PROG-0001",
+      "created_on": "2026-04-15",
+      "updated_on": "2026-04-15",
       "labels": [
-        "live",
-        "operational",
-        "first-lane"
+        "scaffold",
+        "example"
       ],
-      "assignees": "codex",
+      "assignees": "unassigned",
       "dependencies": null,
-      "deliverables": [
-        "closeout-summary.md"
-      ]
+      "deliverables": []
     }
   ]
 }

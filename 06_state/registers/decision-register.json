@@ -1,6 +1,6 @@
 {
   "register": "decision-register",
-  "generated_on": "2026-04-01",
+  "generated_on": "2026-04-15",
   "items": [
     {
       "id": "ADR-ARCH-0001",
@@ -12,6 +12,24 @@
       "path": "01_governance\\decisions\\ADR-ARCH-0001__canonical-repo-hierarchy-and-navigation-model__v0.1.md"
     },
     {
+      "id": "ADR-ARCH-0001",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "active",
+      "title": "canonical repo hierarchy and navigation model",
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\01_governance\\decisions\\ADR-ARCH-0001__canonical-repo-hierarchy-and-navigation-model__v0.1.md"
+    },
+    {
+      "id": "ADR-ARCH-0001",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "accepted",
+      "title": "canonical repo hierarchy and navigation model",
+      "path": "05_hub\\input_hub\\triage\\99_ChatGPT-Library-Content\\ADR-ARCH-0001__canonical-repo-hierarchy-and-navigation-model__v0.1.md"
+    },
+    {
       "id": "ADR-DECN-0001",
       "family": "ADR-DECN",
       "version": "0.1",
@@ -19,6 +37,24 @@
       "status": "accepted",
       "title": "human friendly title",
       "path": "01_governance\\decisions\\ADR-DECN-0001__human-friendly-title__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0001",
+      "family": "ADR-DECN",
+      "version": "0.1",
+      "scope_level": "Enterprise",
+      "status": "accepted",
+      "title": "human friendly title",
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\01_governance\\decisions\\ADR-DECN-0001__human-friendly-title__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0002",
+      "family": "ADR-DECN",
+      "version": "0.1",
+      "scope_level": "Portfolio",
+      "status": "accepted",
+      "title": "human friendly title",
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title\\decisions\\ADR-DECN-0002__human-friendly-title__v0.1.md"
     },
     {
       "id": "ADR-DECN-0002",
@@ -36,7 +72,25 @@
       "scope_level": "Program",
       "status": "accepted",
       "title": "human friendly title",
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\decisions\\ADR-DECN-0003__human-friendly-title__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0003",
+      "family": "ADR-DECN",
+      "version": "0.1",
+      "scope_level": "Program",
+      "status": "accepted",
+      "title": "human friendly title",
       "path": "03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\decisions\\ADR-DECN-0003__human-friendly-title__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0004",
+      "family": "ADR-DECN",
+      "version": "0.1",
+      "scope_level": "Project",
+      "status": "accepted",
+      "title": "human friendly title",
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title\\decisions\\ADR-DECN-0004__human-friendly-title__v0.1.md"
     },
     {
       "id": "ADR-DECN-0004",
@@ -49,12 +103,39 @@
     },
     {
       "id": "ADR-DECN-0004",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "accepted",
+      "title": "adopt lns as operational naming layer",
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\01_governance\\decisions\\ADR-DECN-0004__adopt-lns-as-operational-naming-layer__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0004",
       "family": "ADR-DECN",
       "version": "0.1",
       "scope_level": "Project",
       "status": "accepted",
       "title": "human friendly title",
       "path": "03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title\\decisions\\ADR-DECN-0004__human-friendly-title__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0004",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "accepted",
+      "title": "adopt lns as operational naming layer",
+      "path": "05_hub\\input_hub\\triage\\99_ChatGPT-Library-Content\\ADR-DECN-0004__adopt-lns-as-operational-naming-layer__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0005",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "accepted",
+      "title": "lns formula wins standards and task packets",
+      "path": "05_hub\\input_hub\\triage\\Repo-Architecture\\P3 BACKUP\\luphay-p3-governance\\01_governance\\decisions\\ADR-DECN-0005__lns-formula-wins-standards-and-task-packets__v0.1.md"
     },
     {
       "id": "ADR-DECN-0005",
@@ -64,6 +145,96 @@
       "status": "accepted",
       "title": "lns formula wins standards and task packets",
       "path": "01_governance\\decisions\\ADR-DECN-0005__lns-formula-wins-standards-and-task-packets__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0005",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "accepted",
+      "title": "lns formula wins standards and task packets",
+      "path": "05_hub\\input_hub\\triage\\99_ChatGPT-Library-Content\\ADR-DECN-0005__lns-formula-wins-standards-and-task-packets__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0006",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "accepted",
+      "title": "canonical template contract for operational start",
+      "path": "01_governance\\decisions\\ADR-DECN-0007__canonical-template-contract-for-operational-start__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0010",
+      "family": null,
+      "version": "v0.2",
+      "scope_level": "Enterprise",
+      "status": "draft",
+      "title": "introduce luphay error standard les__v0_2",
+      "path": "01_governance\\decisions\\ADR-DECN-0010__introduce-luphay-error-standard-les__v0_2.md"
+    },
+    {
+      "id": "ADR-DECN-0010",
+      "family": null,
+      "version": "v0.3",
+      "scope_level": "Enterprise",
+      "status": "draft",
+      "title": "introduce luphay error standard les__v0_3",
+      "path": "01_governance\\decisions\\ADR-DECN-0010__introduce-luphay-error-standard-les__v0_3.md"
+    },
+    {
+      "id": "ADR-DECN-0011",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "draft",
+      "title": "add norm class to lns__v0_1",
+      "path": "01_governance\\decisions\\ADR-DECN-0011__add-norm-class-to-lns__v0_1.md"
+    },
+    {
+      "id": "ADR-DECN-0012",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": null,
+      "status": "draft",
+      "title": "les scope expansion to governed failure semantics__v0_1",
+      "path": "01_governance\\decisions\\ADR-DECN-0012__les-scope-expansion-to-governed-failure-semantics__v0_1.md"
+    },
+    {
+      "id": "ADR-DECN-0013",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "active",
+      "title": "add pack class to lns",
+      "path": "01_governance\\decisions\\ADR-DECN-0013__add-pack-class-to-lns__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0014",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": null,
+      "status": "draft",
+      "title": "les scope expansion to governed failure semantics__v0_1",
+      "path": "01_governance\\decisions\\ADR-DECN-0014__les-scope-expansion-to-governed-failure-semantics__v0_1.md"
+    },
+    {
+      "id": "ADR-DECN-0015",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "active",
+      "title": "lock lams v2 draft baseline",
+      "path": "05_hub\\input_hub\\candidate_projects\\LAMS-Baseline\\ADR-DECN-0015__lock-lams-v2-draft-baseline__v0.1.md"
+    },
+    {
+      "id": "ADR-DECN-0015",
+      "family": null,
+      "version": "v0.1",
+      "scope_level": "Enterprise",
+      "status": "active",
+      "title": "lock lams v2 draft baseline",
+      "path": "01_governance\\decisions\\ADR-DECN-0015__lock-lams-v2-draft-baseline__v0.1.md"
     }
   ]
 }
