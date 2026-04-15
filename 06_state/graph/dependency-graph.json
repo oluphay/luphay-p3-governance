@@ -1,25 +1,45 @@
 {
-  "generated_on": "2026-03-29",
+  "generated_on": "2026-04-01",
   "nodes": [
     {
       "id": "P3-PORT-0001",
       "type": "portfolio",
-      "path": "03_portfolios/P3-PORT-0001__human-friendly-title"
+      "path": "03_portfolios\\P3-PORT-0001__human-friendly-title"
     },
     {
       "id": "P3-PROG-0001",
       "type": "program",
-      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title"
+      "path": "03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title"
     },
     {
       "id": "P3-PROJ-0001",
       "type": "project",
-      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/P3-PROJ-0001__human-friendly-title"
+      "path": "03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title"
+    },
+    {
+      "id": "P3-PORT-0002",
+      "type": "portfolio",
+      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations"
+    },
+    {
+      "id": "P3-PROG-0002",
+      "type": "program",
+      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations\\programs\\P3-PROG-0002__operational-readiness"
+    },
+    {
+      "id": "P3-PROJ-0002",
+      "type": "project",
+      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations\\programs\\P3-PROG-0002__operational-readiness\\projects\\P3-PROJ-0002__activate-p3-for-daily-use"
     },
     {
       "id": "TASK-FEAT-0001",
       "type": "task-packet",
-      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title/projects/P3-PROJ-0001__human-friendly-title/task-packets/TASK-FEAT-0001__human-friendly-title"
+      "path": "03_portfolios\\P3-PORT-0001__human-friendly-title\\programs\\P3-PROG-0001__human-friendly-title\\projects\\P3-PROJ-0001__human-friendly-title\\task-packets\\TASK-FEAT-0001__human-friendly-title"
+    },
+    {
+      "id": "TASK-FEAT-0002",
+      "type": "task-packet",
+      "path": "03_portfolios\\P3-PORT-0002__p3-live-operations\\programs\\P3-PROG-0002__operational-readiness\\projects\\P3-PROJ-0002__activate-p3-for-daily-use\\task-packets\\TASK-FEAT-0002__activate-p3-live-workflow"
     }
   ],
   "edges": [
@@ -34,8 +54,23 @@
       "relation": "contains"
     },
     {
+      "source": "P3-PORT-0002",
+      "target": "P3-PROG-0002",
+      "relation": "contains"
+    },
+    {
+      "source": "P3-PROG-0002",
+      "target": "P3-PROJ-0002",
+      "relation": "contains"
+    },
+    {
       "source": "P3-PROJ-0001",
       "target": "TASK-FEAT-0001",
+      "relation": "contains"
+    },
+    {
+      "source": "P3-PROJ-0002",
+      "target": "TASK-FEAT-0002",
       "relation": "contains"
     }
   ]

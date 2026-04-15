@@ -10,6 +10,11 @@
 
 This is the operating contract for all AI agents working in this repo. Read it in full on every new session before taking any action.
 
+`04_docs/REPO_BASELINE.md` is the current repo-posture memo for sample,
+canonical-for-now, local-only, and archive-only zones. Read it during
+cold-start before treating any example hierarchy or local staging area as live
+canon.
+
 ---
 
 ## Cold-start protocol
@@ -18,16 +23,21 @@ Execute these steps in sequence at the start of every new session without except
 
 1. Read this file (`AGENTS.md`) in full. Do not skim. Every section applies.
 2. Read `04_docs/REPO_PROFILE.md`. Extract the canonical path registry from the YAML block. Use these paths for all subsequent file operations in this session.
-3. Read the JSON register(s) in `06_state/registers/` relevant to the task at hand. Do not traverse `03_portfolios/` to build a picture of current state — read the registers.
-4. Read the task contract or instruction from Alpha that initiated this session. If no task contract exists, request one before proceeding.
-5. Confirm the task type (content, entity creation, state operation, or decision recording — see §4). Select the correct workflow.
-6. Do not begin execution until steps 1–5 are complete.
+3. Read `04_docs/REPO_BASELINE.md` for the current repo posture before treating any example lane or local zone as canonical truth.
+4. Read the JSON register(s) in `06_state/registers/` relevant to the task at hand. Do not traverse `03_portfolios/` to build a picture of current state — read the registers.
+5. Read the task contract or instruction from Alpha that initiated this session. If no task contract exists, request one before proceeding.
+6. Confirm the task type (content, entity creation, state operation, or decision recording — see §4). Select the correct workflow.
+7. Do not begin execution until steps 1–6 are complete.
 
 ---
 
 ## Path registry
 
 All file operations use the paths below. Do not construct paths by inference or by reading folder names. If a required path is not in this table, escalate to Alpha before proceeding.
+
+Non-canonical areas such as `00_day_one/` and archive-only areas such as
+`99_archive/` are outside this declared path registry. Do not treat them as
+governed execution surfaces unless Alpha gives explicit instruction.
 
 | Zone | Path |
 |---|---|

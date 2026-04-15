@@ -1,37 +1,30 @@
-# packet.yaml — machine-readable task packet identity and status
-# Part of: TASK-FEAT-0001
-# Source of truth for structured fields. Do not edit the derived JSON in 06_state/registers/.
-# Regenerate derived outputs by running: scripts/rebuild-state.ps1
-
 id: TASK-FEAT-0001
-title: "[placeholder — replace with real task title]"
+object_type: task-packet
+title: Example Scaffold Task Packet
+slug: human-friendly-title
 packet_class: Change
 packet_subtype: feature
 governance_mode: Standard
-status: draft
 version: v0.1
-created_by: ""
-created_at: ""
-owner: ""
-
-# --- Scheduling ---
-due_date: ""
+status: draft
+owner: Alpha
+priority: LATER
+active_assignee: ""
+definition_of_done: Example packet remains available as scaffold reference for future task creation.
+validation_command: powershell -ExecutionPolicy Bypass -File 07_scripts\validate.ps1
+validation_status: pending
+handoff_note: Example-only packet. Use the live lane under P3-PORT-0002 for real work.
+created_by: Alpha
+created_at: 2026-03-29T00:00:00Z
+last_updated: 2026-04-01
 started_at: ""
 completed_at: ""
-
-# --- Hierarchy ---
-parent_project: P3-PROJ-0001
-parent_program: P3-PROG-0001
 parent_portfolio: P3-PORT-0001
-
-# --- Dependencies ---
-depends_on: []
-blocks: []
-
-# --- Labels ---
+parent_program: P3-PROG-0001
+parent_project: P3-PROJ-0001
 labels:
 - scaffold
 - example
-
-# --- Notes ---
-notes: ""
+depends_on: []
+blocks: []
+notes: Example packet retained for scaffold continuity.

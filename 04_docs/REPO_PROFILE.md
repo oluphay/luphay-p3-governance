@@ -6,7 +6,7 @@ Machine-oriented repo profile snapshot for `luphay-p3-governance`.
 
 - repo_name: `luphay-p3-governance`
 - scaffold_version: `0.4`
-- generated_on: `2026-03-29`
+- generated_on: `2026-04-15`
 - hierarchy_model: `Portfolio -> Program -> Project -> Task Packet`
 
 ## Canonical path declarations
@@ -24,13 +24,29 @@ command_surface: 08_command/
 runtime_output: 09_runs/
 ```
 
-## Current scaffold counts
+## Current committed scaffold counts
 
 - portfolios: 1
 - programs: 1
 - projects: 1
 - task_packets: 1
 - decisions: 5
+
+## Current operating baseline
+
+```yaml
+committed_portfolio_posture: sample_template_only
+sample_portfolio_home: 03_portfolios/P3-PORT-0001__human-friendly-title/
+canonical_workflow_doc_for_now: 04_docs/operations/p3-live-workflow.md
+hub_posture: local_staging_contract_readmes_only
+non_canonical_roots:
+  - 00_day_one/
+archive_only_roots:
+  - 99_archive/
+removed_portfolio_lanes:
+  - 03_portfolios/P3-PORT-0002__p3-live-operations/
+  - 03_portfolios/P3-PORT-0003__luphay-canonical-atlas/
+```
 
 ## State contract
 

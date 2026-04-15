@@ -3,6 +3,21 @@
 This repo tree has been checked against `ADR-ARCH-0001 — Canonical Repo Hierarchy and Navigation Model`
 and aligned to `LNS v0.4`.
 
+## Current-state note
+
+This document remains the v0.4 canonical tree intent reference. It is not the
+live current-state inventory for the repo.
+
+For current repo posture, use `04_docs/REPO_BASELINE.md` together with the root
+control plane. In particular:
+
+- `03_portfolios/P3-PORT-0002__p3-live-operations/` is removed
+- `03_portfolios/P3-PORT-0003__luphay-canonical-atlas/` is removed
+- `03_portfolios/P3-PORT-0001__human-friendly-title/` remains sample/template only
+- `05_hub/` is near-term local staging only
+- `00_day_one/` is non-canonical
+- `99_archive/` is archive-only
+
 ## Change log
 
 ### v0.4 — 2026-03-29

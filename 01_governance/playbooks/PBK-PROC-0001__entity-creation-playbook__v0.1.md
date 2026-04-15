@@ -1,7 +1,7 @@
 ---
 id: PBK-PROC-0001
 title: "Entity Creation Playbook"
-version: v0.1
+version: v0.2
 status: active
 scope_level: Enterprise
 effective_date: 2026-03-31
@@ -13,6 +13,13 @@ This playbook governs the end-to-end process for creating a new governed entity
 (portfolio, program, project, or task packet) in `luphay-p3-governance`. It
 covers the full flow from intake through hub staging to promotion into
 `03_portfolios/`. Follow every step in order. No step may be skipped.
+
+## Immediate-use note
+
+For immediate live operations, direct creation under an approved active parent is
+the default path for new task packets and other already-approved work. The hub
+remains available as optional local staging, but `03_portfolios/` is the durable
+system of record.
 
 ---
 
@@ -27,27 +34,30 @@ covers the full flow from intake through hub staging to promotion into
 
 ## Phase 1 — Intake
 
-**Step 1. Drop the raw brief.**
-Place a plain-text or Markdown brief describing the new entity into
-`05_hub/input_hub/raw_drop/`. Name it descriptively but informally — this file
-is not governed yet. Example: `new-portfolio-luphay-core-platform.md`.
+**Step 1. Choose the intake path.**
+Use one of the following paths:
+- **Direct path (default for immediate live work):** treat the approved brief or
+  task contract from Alpha as the intake artifact and create the entity directly
+  under the correct active parent in `03_portfolios/`.
+- **Hub path (optional local staging):** place a plain-text or Markdown brief
+  into `05_hub/input_hub/raw_drop/`. Name it descriptively but informally — this
+  file is not governed yet.
 
-**Step 2. Triage.**
-Agent reads the brief and classifies the entity type (portfolio, program,
-project, or task packet). Agent moves the brief from `raw_drop/` to the
-appropriate `candidate_*` folder:
+**Step 2. Triage when the hub path is used.**
+If the brief entered through the hub, agent reads it and classifies the entity
+type (portfolio, program, project, or task packet). Agent moves the brief from
+`raw_drop/` to the appropriate `candidate_*` folder:
 - `candidate_portfolios/` — for portfolios
 - `candidate_programs/` — for programs
 - `candidate_projects/` — for projects
 - `candidate_tasks/` — for task packets
 
-Agent surfaces classification to Alpha for confirmation before proceeding.
-If the brief is unclear or the entity type is ambiguous, escalate — do not
-classify by inference.
+If the hub path is not used, the approved task contract or explicit Alpha
+instruction is the classification authority.
 
 **Step 3. Alpha gate — intake approval.**
-Alpha confirms the entity type and approves moving to Phase 2. If Alpha
-returns the item, move it to `rejected_or_returned/` and stop.
+Alpha confirms the entity type and approves moving to Phase 2. If the hub path
+was used and Alpha returns the item, move it to `rejected_or_returned/` and stop.
 
 ---
 
@@ -90,6 +100,15 @@ Read the template for the entity type from `02_templates/`:
 - Project: `STD-TEMP-0002__p3-project-template__v0.1.md`
 - Task packet: `STD-TEMP-0001__task-packet-template__v0.1.md`
 
+Each `STD-TEMP` file is the canonical scaffold for that entity type. It now
+contains:
+- the primary Markdown scaffold
+- the sibling `entity.yaml` or `packet.yaml` scaffold
+- required folders
+- required `docs/` stub files where applicable
+
+Do not use separate `entity-template-*.yaml` or `packet-template.yaml` files.
+
 Also read the pattern file for the entity type:
 - Portfolio pattern: `03_portfolios/STD-REFR-0002__portfolio-home-pattern__v0.1.md`
 - Program pattern: `03_portfolios/.../programs/STD-REFR-0003__program-home-pattern__v0.1.md`
@@ -108,14 +127,33 @@ no `Human Friendly Title`, no placeholder description.
 **Step 10. Write the sibling YAML companion file.**
 For portfolios, programs, and projects: write `entity.yaml`.
 For task packets: write `packet.yaml`.
+Populate the YAML from the scaffold embedded in the selected `STD-TEMP` file.
 Populate every field. `owner` must be a real name or role, not `TBD`. Set
 `status` appropriately: `draft` for new entities not yet in active work.
+For live task packets, include `priority`, `active_assignee`,
+`definition_of_done`, `validation_command`, and `validation_status`.
 
 **Step 11. Create required subfolders and stub files.**
-Use the pattern file (step 7) to identify which subfolders are required.
-Create stub `.md` files in `docs/` (or `inputs/`, `outputs/`, `working/`,
-`evidence/` for task packets). Stubs may contain only the folder-level heading
-— they exist to declare structure, not to contain content yet.
+Use the selected `STD-TEMP` file together with the pattern file (step 7) to
+identify which subfolders and stub files are required. Create them exactly.
+
+Required `docs/` stubs:
+- Portfolio: `overview.md`, `scope.md`, `roadmap.md`, `governance.md`,
+  `dependencies.md`, `risks.md`, `notes.md`
+- Program: `overview.md`, `scope.md`, `roadmap.md`, `dependencies.md`,
+  `risks.md`, `notes.md`
+- Project: `charter.md`, `scope.md`, `plan.md`, `roadmap.md`,
+  `dependencies.md`, `risks.md`, `assumptions.md`, `notes.md`
+
+Task-packet required folders:
+- `inputs/`
+- `outputs/`
+- `working/`
+- `evidence/`
+
+Every live task packet also includes a primary `TASK-*.md` file at the packet
+root. Stub files may contain only the folder-level heading — they exist to
+declare structure, not to contain content yet.
 
 ---
 

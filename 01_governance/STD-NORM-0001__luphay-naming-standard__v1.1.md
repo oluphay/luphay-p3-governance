@@ -1,0 +1,1005 @@
+# Luphay Naming Standard (LNS)
+
+**Document ID:** STD-NORM-0001  
+**Version:** v1.1  
+**Status:** Active  
+**Supersedes:** LNS v1.0, LNS v0.9, LNS v0.8, LNS v0.7, LNS v0.6, LNS v0.5, LNS v0.4, LNS v0.3, LNS v0.2, LNS v0.1, TNS v1, SNS v1, SNS Extended v1, IRNS v1, MANS v1, RNS v1  
+**Layer:** Operational — daily-driver naming for all Luphay file families  
+**Governance layer:** STD-SYS-0001 (FROZEN) governs the enterprise governance tier; LNS governs the operational tier below it. These do not conflict.
+
+---
+
+## Change log
+
+### v1.1 — 2026-04-14
+- Added `PACK` to §5 under STD internal classes as the dedicated class for governed package artifacts that assemble, frame, and release a coherent set of related standards or specification documents.
+- Added `PACK` class definition, boundaries, ownership, and decision rule to §5.2 and §5.4.
+- Updated §5.3 precedence/supporting-role model to explicitly recognize `PACK` as a supporting assembly artifact that does not override canonical authority of its packaged members.
+- Updated §5.8 examples to include `STD-PACK`.
+- Updated §10 Violation Reference with anti-patterns for misclassifying package artifacts as `SPEC` or `REFR`.
+- Added optional `STD-PACK` front matter extension to §11.
+- Decision basis: ADR-DECN-0013.
+
+### v1.0 — 2026-04-12
+- Added `NORM` to §5 under STD internal classes as the dedicated class for normative definitional standards — governed rule systems, grammars, naming conventions, taxonomies, and classification schemes that are binding company-wide but are not build specifications, behavioral policies, or constitutional documents.
+- Added `NORM` class definition, boundaries, and ownership to §5.2.
+- Updated §5.3 precedence model to: `CONS > NORM > POLI > SPEC / PROC / PLAY > GUID`.
+- Added `NORM` decision rule to §5.4.
+- Added `NORM` example to §5.8.
+- Added `NORM` violation anti-patterns to §10.
+- Version bumped from v0.9 to v1.0. LNS has been stable and Active across nine versions; the addition of a new class at this milestone is the appropriate forcing function for a v1.0 promotion.
+- Re-registered LNS from `STD-CONS-0001` to `STD-NORM-0001`. The prior ID was a bootstrapping pragmatism; `NORM` is the correct class for LNS under its own taxonomy. The deferral noted in ADR-DECN-0011 §5.5 is hereby closed. `STD-CONS-0001` is retained as an alias in the artifact registry for backward compatibility.
+- Decision basis: ADR-DECN-0011.
+
+### v0.9 — 2026-04-08
+- Promoted document status from **Draft** to **Active**.
+- Resolved the `PLAY` stewardship/lifecycle conflict: every `STD-PLAY` artifact must name a `playbook_steward` at every stage, including `toc` and `draft`.
+- Refined `PLAY` lifecycle definitions so early-stage playbooks may be non-operational, but they may not be stewardless.
+- Added an explicit status-alignment rule for `STD-PLAY`: `playbook_stage` is authoritative for lifecycle position and must map to document `status` as follows — `toc`/`draft` → `status: draft`; `active` → `status: active`; `retired` → `status: archived`.
+- Updated §11 front matter minimum so the generic `id` pattern aligns with the filename identity block: `[PREFIX]-[CLASS]-[ID]`.
+- Updated the task front matter example to use the full identity form (`TASK-FEAT-0024`) rather than a shortened family-only form.
+- Added a note in the `STD-PLAY` front matter section clarifying that `playbook_steward` is mandatory and that `playbook_stage` governs allowed `status` values for playbooks.
+- Decision basis: [ADR-DECN-TBD — PLAY lifecycle governance refinement].
+
+### v0.8 — 2026-04-08
+- Added version convention to `STD-PLAY` class in §5.2: `v0.x` for TOC and drafting stages; `v1.0` for operational activation; `v1.x+` for active revisions.
+- Added `playbook_stage` front matter field (`toc | draft | active | retired`) to the `PLAY` stewardship block in §5.2 to capture lifecycle position below version granularity.
+- Added `PLAY`-specific front matter extension to §11 with `playbook_steward`, `playbook_stage`, `review_cadence`, and `last_reviewed` fields. Stewardship fields are declared in front matter to match the permanent steward requirement already established in §5.2.
+- Decision basis: operational practice (Alpha Kamara, 2026-04-08).
+
+### v0.7 — 2026-04-08
+- Added `SPEC` to §5 under STD internal classes as the dedicated class for technical specifications, system requirements, schemas, models, interfaces, and performance constraints.
+- Updated §5 to define `SPEC` boundaries against `POLI`, `PROC`, and `REFR`, clarifying that `SPEC` captures the required technical target state rather than the governing rule, execution steps, or passive reference material.
+- Updated the STD precedence model to: `CONS > POLI > SPEC / PROC / PLAY > GUID`.
+- Added `SPEC` selection logic to §5 decision rules so operators and agents can distinguish blueprint artifacts from procedures, playbooks, and references.
+- Updated §3 Quick Prefix Reference and §5 examples to explicitly include specifications in STD usage.
+- Updated §10 Violation Reference with an anti-pattern for binding technical specifications misclassified as `REFR`.
+- Decision basis: ADR-DECN-0009.
+
+### v0.6 — 2026-04-08
+- Added `PLAY` to §5 under STD internal classes for scenario-based response patterns that are distinct from linear procedures.
+- Refactored §5 to define clearer class boundaries, ownership expectations, and decision logic across `CONS`, `POLI`, `PROC`, `PLAY`, `GUID`, `TEMP`, and `REFR`.
+- Added a permanent **Playbook Steward** requirement so every `PLAY` has a standing owner responsible for maintenance, review cadence, and operational fitness beyond any single incident or event.
+- Updated the STD family formula to use `[ID]` rather than a hard-coded 4-digit serial.
+- Adopted variable-width source IDs for `EXTR`, `REGL`, and `ADPT` so external and adopted standards preserve the full original identifier (for example `27001`, `80053`, `2016679`) rather than truncated 4-digit forms.
+- Added an explicit precedence model for STD artifacts: `CONS > POLI > PROC / PLAY > GUID`.
+- Updated §1, §2, and §3 so universal rules distinguish default sequential IDs from family-specific exceptions.
+- Updated §10 Violation Reference with anti-patterns for playbook misclassification and external-ID truncation.
+- Decision basis: ADR-DECN-0008.
+
+### v0.5 — 2026-04-01
+- Added `INCD` and `RELS` class codes to §4 under new "Response & Delivery" category.
+- `INCD` covers Incident work: triage, containment, failure investigation, and emergency recovery.
+- `RELS` covers Release work: deployment approvals, cutovers, and package promotion.
+- This closes the gap between the LNS operational layer and the five canonical TPS v2.1 `packet_class` values. All five TPS classes now have explicit LNS counterparts, completing coverage across the full governance routing layer.
+- Mapping table in §4 updated to include `INCD → Incident` and `RELS → Release` bindings.
+- Mapping table column header corrected from "TNS class" to "LNS class".
+- §4 body text updated: "TNS class" references corrected to "LNS class" throughout.
+- §4 note updated to reference TPS v2.1 (was v2.0).
+- §10 Violation Reference updated with two new anti-pattern rows for INCD and RELS misclassification.
+- Decision basis: [ADR-DECN-TBD].
+
+### v0.4 — 2026-03-27
+- Added §9 P3MS — P3 Management Standard family covering Portfolio, Program, and Project hierarchy artifacts.
+- `P3` added to §3 Quick Prefix Reference.
+- Universal formula prefix list updated to include `P3`.
+- `PORT`, `PROG`, `PROJ` retire as standalone prefixes in STD-SYS-0001; they become class codes under `P3` in LNS.
+- Decision basis: ADR-DECN-0004.
+
+### v0.3 — 2026-03-27
+- Renamed §8 family from `REC` to `ADR`.
+- Switched ID from date-keyed (`YYYYMMDD`) to sequence (`NNNN`) across all ADR classes.
+- Meeting-type classes (`MEET`, `BORD`, `CLNT`, `PERS`, `INTV`, `WORK`) now carry date in slug as convention, not in the ID position.
+- Added `DECN` class — formal governance decision records. Replaces `DEC-DEC-[NNNN]` format from STD-SYS-0001. DEC-0002 and DEC-0003 are the last records filed in the old format.
+- Added `ARCH` class — Architecture Decision Records (classic ADRs). Replaces `ADR-[NNNN]` format from STD-SYS-0001 §8.7.
+- Removed `DECI` class — superseded by `DECN`.
+- Updated §3 Quick Prefix Reference: `REC` → `ADR`.
+- Updated §9 violation table: retired `REC-*` anti-patterns, added `ADR` equivalents.
+- Updated Purpose section and footer.
+
+### v0.2 — 2026-03-27
+- Replaced governing-question class codes in §4 (TASK) with TNS functional class codes.
+- `OPS_` retired; replaced by `INFR` throughout.
+- Added front matter mapping note linking TNS classes to TPS v2.0 `packet_class` field.
+- Updated §9 violation table to include `OPS_` → `INFR`.
+
+### v0.1 — 2026-03-27
+- Initial release. Consolidated TNS, SNS, SNS Extended, IRNS, MANS, RNS into one document.
+
+---
+
+## Purpose
+
+This is the naming standard you actually use every day. Pick your file family, apply the formula, name the file. Done.
+
+STD-SYS-0001 exists for governance-layer artifacts — policies, frozen standards, audit-grade documents. LNS exists for everything else: tasks, research, media, records, decisions, and architecture records. If you are unsure which applies, use LNS.
+
+---
+
+## 1. The Universal Formula
+
+Every governed file at Luphay follows this pattern:
+
+```
+[PREFIX]-[CLASS]-[ID]__[slug]__vX.Y.[ext]
+```
+
+| Token | Description | Format |
+| :--- | :--- | :--- |
+| **PREFIX** | Family identifier. Fixed per family. | `TASK`, `STD`, `INTL`, `MED`, `ADR`, `P3` |
+| **CLASS** | Sub-type within the family. Always 4 characters. | `UPPERCASE` |
+| **ID** | Unique identifier within the family. | Usually `NNNN`; family-specific exceptions allowed where explicitly defined |
+| `__` | Separator between the identity block and the description. | Double underscore only |
+| **slug** | Human-readable description of the file content. | `kebab-case` |
+| **vX.Y** | Version. Major.Minor. | `v0.1`, `v1.0`, `v2.3` |
+| **ext** | File extension. | `.md`, `.png`, `.svg`, `.mp4`, etc. |
+
+---
+
+## 2. Shared Formatting Rules
+
+These rules apply to every file family without exception.
+
+**Classes must be exactly 4 characters.** No trailing underscores, no padding with symbols. If a natural abbreviation is 3 characters, add a letter. Examples: `OPS` → `INFR`; `BRD` → `BORD`.
+
+**Slugs are lowercase kebab-case only.** Letters, numbers, and hyphens. No spaces. No special characters. No status words (`final`, `new`, `draft`, `latest`).
+
+**Slugs are 2–8 words.** Describe what the file *is*, not what state it is currently in.
+
+**Sequential IDs use leading zeros.** Always `0007`, never `7`.
+
+**Default ID rule:** families use sequence IDs (`NNNN`) unless a family section explicitly defines an exception. There are no date-keyed IDs. For meeting-type ADR classes, carry the date in the slug instead — see §8. For `STD` external-source classes (`EXTR`, `REGL`, `ADPT`), use the full source identifier instead of truncating it to 4 digits.
+
+**Version uses `vMAJOR.MINOR`.** For meeting-type ADR classes, `vX` (single digit) is acceptable. For external, regulatory, and adopted standards, `vYYYY` (publication year) or the source version is acceptable. In all other cases use `vX.Y`.
+
+**Separators:** single hyphen `-` inside tokens; double underscore `__` between the identity block and the slug, and between the slug and the version. Never mix.
+
+**Forbidden in filenames:** spaces, `&`, `/`, `\`, `:`, `;`, `,`, `?`, `!`, `()`, `[]`, `{}`, `#`, `@`, single underscore except in template markers.
+
+**Status, owner, priority, and due dates never appear in filenames.** They belong in front matter.
+
+---
+
+## 3. Quick Prefix Reference
+
+| Prefix | Family | ID type | Primary use |
+| :--- | :--- | :--- | :--- |
+| `TASK` | Task Packets | Sequence | Governed execution work |
+| `STD` | Standards | Sequence (internal) / source ID (external, regulatory, adopted) | Policies, specifications, procedures, playbooks, templates, and standards |
+| `INTL` | Intelligence & Research | Sequence | Research, analysis, literature, academic notes |
+| `MED` | Media & Assets | Sequence | Visual, audio, and design assets |
+| `ADR` | Records & Decisions | Sequence | Meeting records, governance decisions, architecture decisions |
+| `P3` | P3 Hierarchy | Sequence | Portfolio, Program, and Project specification documents |
+
+---
+
+## 4. TASK — Task Packets
+
+**Formula:**
+```
+TASK-[CLASS]-[NNNN]__[slug]__vX.Y.md
+```
+
+**Class codes** reflect the functional nature of the work — what you are actually doing. Set at intake. Stable for the life of the packet.
+
+### Development & Technical
+
+| Class | Type |
+| :--- | :--- |
+| `FEAT` | Feature — new functionality or enhancements |
+| `FIXE` | Fix — bug fixes, patches, or error corrections |
+| `DEBT` | Debt — refactoring, cleanup, or technical debt |
+| `RESR` | Research — spikes, feasibility studies, or exploratory work |
+| `ARCH` | Architecture — architectural decisions or system design |
+
+### Quality & Operations
+
+| Class | Type |
+| :--- | :--- |
+| `TEST` | Test — QA plans, automated tests, or bug validation |
+| `INFR` | Infrastructure — CI/CD, environments, or infrastructure changes |
+| `SECU` | Security — security audits, patching, or compliance tasks |
+| `REVN` | Review — peer reviews or formal document approvals |
+
+### Management & Documentation
+
+| Class | Type |
+| :--- | :--- |
+| `DOCS` | Documentation — technical writing, user guides, or API docs |
+| `ADMN` | Admin — meetings, scheduling, or project overhead |
+| `DATA` | Data — migrations, modeling, or analytics tasks |
+
+### Response & Delivery
+
+| Class | Type |
+| :--- | :--- |
+| `INCD` | Incident — triage, containment, failure investigation, or emergency recovery |
+| `RELS` | Release — deployment approvals, cutovers, or package promotion |
+
+**Governance fields belong in front matter only.** `packet_class` (governing question per TPS v2.1), `packet_subtype`, `governance_mode`, `packet_weight`, and `proof_burden` are governance state — not filename identity. The LNS class and the TPS `packet_class` coexist: the filename carries the functional class you reason with daily; front matter carries the formal governance classification.
+
+**Typical mapping for reference:**
+
+| LNS class | Typical TPS `packet_class` |
+| :--- | :--- |
+| `FEAT`, `FIXE`, `DEBT`, `DOCS`, `DATA`, `INFR` | `Change` |
+| `RESR`, `ARCH` | `Discovery` |
+| `TEST`, `SECU`, `REVN` | `Assurance` |
+| `ADMN` | `Change` or `Discovery` depending on context |
+| `INCD` | `Incident` |
+| `RELS` | `Release` |
+
+**Minimum front matter for a task file:**
+
+```yaml
+---
+id: TASK-FEAT-0024
+title: User Authentication Flow
+packet_class: Change
+packet_subtype: feature
+governance_mode: Standard
+status: active
+version: v0.1
+created_by:
+created_at:
+---
+```
+
+**Examples:**
+```
+TASK-FEAT-0024__user-authentication-flow__v0.1.md
+TASK-FIXE-0089__header-mobile-alignment__v1.1.md
+TASK-RESR-0012__vector-database-benchmark__v1.0.md
+TASK-INFR-0512__migrate-to-s3-buckets__v0.8.md
+TASK-ARCH-0007__define-agent-routing-model__v0.1.md
+TASK-SECU-0031__api-key-rotation-policy__v1.0.md
+TASK-DOCS-0018__update-onboarding-guide__v0.1.md
+TASK-DEBT-0045__refactor-register-loader__v0.1.md
+TASK-INCD-0105__triage-database-connection-timeout__v0.1.md
+TASK-RELS-0022__approve-q2-platform-deployment__v1.0.md
+```
+
+---
+
+## 5. STD — Standards
+
+**Purpose:**  
+The `STD` family governs normative, reference, and adopted standards used to direct how Luphay operates, decides, documents, and assures quality. This family separates binding authority from technical target-state definition, operational execution, scenario response, recommended practice, reusable scaffolds, and static reference material.
+
+**Formula:**
+```
+STD-[CLASS]-[ID]__[slug]__vX.Y.md
+```
+
+### 5.1 Internal classes
+
+| Class | Type |
+| :--- | :--- |
+| `CONS` | Constitution — foundational governance principles, structural authority, and system-defining rules |
+| `NORM` | Normative Standard — a governed rule system, grammar, naming convention, taxonomy, or classification scheme that is binding company-wide but is not a build specification, behavioral policy, or constitutional document |
+| `POLI` | Policy — binding rules, mandatory requirements, assigned authority, and non-optional constraints |
+| `SPEC` | Specification — binding technical blueprints, schemas, models, interfaces, thresholds, and build constraints for a defined system or component |
+| `PACK` | Package — a governed assembly artifact that groups, frames, and releases a coherent set of related standards or specification documents as one bounded package |
+| `PROC` | Procedure — the canonical step-by-step method for carrying out a defined routine process |
+| `PLAY` | Playbook — a scenario-based response pattern for handling recurring operational conditions, incidents, or coordinated actions |
+| `GUID` | Guideline — recommended practices, heuristics, and quality-oriented advice where judgment is permitted |
+| `TEMP` | Template — a reusable master document intended to be copied, filled in, or instantiated |
+| `REFR` | Reference — stable factual, definitional, taxonomic, or technical material used for lookup or citation |
+
+### 5.2 Internal class definitions, boundaries, and ownership
+
+#### `CONS` — Constitution
+**Definition:**  
+A constitution records foundational governance principles, structural authority, core identity rules, and system-defining logic that sit above ordinary operating artifacts.
+
+**Use when:**  
+- the artifact defines foundational principles for the enterprise, system, or governance model  
+- the artifact establishes durable structural authority and non-negotiable organizing logic  
+- the artifact is intended to remain highly stable over time  
+
+**Boundary:**  
+- A constitution is not for routine operating instructions.  
+- A constitution sits above all other internal STD classes in conceptual authority.  
+- A constitution should be rare, durable, and identity-defining.  
+- A constitution does **not** cover governed definitional systems such as naming conventions or error taxonomies — those belong in `NORM`.  
+
+**Ownership:**  
+Founder, board-equivalent authority, executive governance authority, or other highest-order internal steward.
+
+---
+
+#### `NORM` — Normative Standard
+**Definition:**  
+A normative standard establishes a governed definitional system — a grammar, naming convention, taxonomy, classification scheme, or semantic rule set — that is binding and company-wide but does not describe how to build a technical artifact, define behavioral obligations and prohibitions, or constitute foundational governance authority.
+
+**Use when:**  
+- the artifact establishes a naming convention, grammar, or code format used across the company  
+- the artifact defines a taxonomy or classification scheme that other artifacts must follow  
+- the artifact establishes a semantic rule set — a vocabulary, error naming standard, tag registry, severity framework — as an authoritative reference  
+- the artifact is normative and binding but its function is definitional rather than executional or behavioral  
+
+**Boundary:**  
+- A normative standard is **not** a build specification. If the artifact describes what a system must technically be or satisfy, it belongs in `SPEC`.  
+- A normative standard is **not** a policy. If the artifact defines behavioral obligations, prohibitions, or authority assignments, it belongs in `POLI`.  
+- A normative standard is **not** a constitution. If the artifact establishes foundational governance authority, it belongs in `CONS`. `NORM` sits one tier below `CONS`.  
+- A normative standard is **not** a reference. `REFR` is passive lookup material; `NORM` is binding. If compliance is required, use `NORM`. If the artifact is merely informational, use `REFR`.  
+- A normative standard is **not** a guideline. `GUID` is advisory and judgment-permitting; `NORM` is normative and mandatory.  
+
+**Ownership:**  
+Platform Governance, Standards Authority, or other designated steward role. Every `NORM` artifact must have a named steward responsible for versioning, review cadence, and long-term maintenance.
+
+**Examples of `NORM` artifacts:**  
+- Luphay Naming Standard (LNS) — the naming grammar for all Luphay files  
+- Luphay Error Standard (LES) — the error naming grammar and family taxonomy for all Luphay systems  
+- A future Luphay Tag Taxonomy — a governed classification system for artifact tagging  
+- A future Luphay Severity Framework — a binding severity level classification for system events  
+
+---
+
+#### `POLI` — Policy
+**Definition:**  
+A policy defines binding rules, mandatory outcomes, prohibitions, decision rights, and formal accountabilities. It expresses what must be true, what must be done, what must not be done, and who holds authority.
+
+**Use when:**  
+- the artifact establishes mandatory requirements  
+- the artifact defines prohibitions or obligations  
+- the artifact assigns formal accountability or approval rights  
+- the artifact sets guardrails that other artifacts must follow  
+
+**Boundary:**  
+- A policy does **not** usually contain detailed step-by-step operating instructions.  
+- A policy may reference procedures, playbooks, guidelines, controls, and templates.  
+- A policy should not be used for general advice or background explanation unless needed to support the rule.  
+
+**Ownership:**  
+Governance authority, executive owner, compliance owner, or other formally designated control owner.
+
+---
+
+#### `SPEC` — Specification
+**Definition:**  
+A specification defines binding technical, structural, or measurable requirements for a specific system, interface, component, dataset, environment, or artifact. It describes the target state an implementation must satisfy.
+
+**Use when:**  
+- the artifact defines what a system, component, or interface must be or support  
+- the artifact contains schemas, models, API contracts, ERDs, configuration constraints, compatibility rules, or performance thresholds  
+- the artifact serves as the technical source of truth for design, validation, or build acceptance  
+- the artifact translates a policy requirement into concrete technical criteria  
+
+**Boundary:**  
+- A specification defines the required target state, not the broad governance rule; the broader rule belongs in `POLI`.  
+- A specification does **not** describe the step-by-step operating method; that belongs in `PROC`.  
+- A specification is not a situational response artifact; that belongs in `PLAY`.  
+- A specification is not passive lookup material; if the artifact is mainly informational and non-binding, it belongs in `REFR`.  
+- A specification is **not** a naming convention, grammar, or semantic rule set; that belongs in `NORM`.  
+- A specification may be used as the benchmark for testing, assurance, audit comparison, or implementation review.  
+
+**Ownership:**  
+Lead architect, product owner, system owner, technical authority, or other permanently assigned design steward.
+
+---
+
+#### `PACK` — Package
+**Definition:**  
+A package is a governed assembly artifact that groups, frames, and releases a coherent set of related standards, specifications, or companion documents as one bounded package. It identifies package purpose, composition, canonical members, boundary rationale, and release alignment.
+
+**Use when:**  
+- the artifact answers "What is the bounded authoritative package for this system or release?"  
+- the artifact assembles multiple related standards or specifications into a single governed set  
+- the artifact identifies which component artifacts are canonical and how they relate  
+- the artifact serves as the wrapper for a multi-document standard, specification suite, or release bundle  
+
+**Boundary:**  
+- A package is **not** itself the primary technical source of truth unless explicitly declared. The packaged `SPEC`, `POLI`, `NORM`, or other member artifacts retain their native authority.  
+- A package is **not** a passive lookup artifact; if the file actively defines package composition, package boundary, release scope, and authoritative members, it is not merely `REFR`.  
+- A package is **not** a specification. If the artifact defines the technical target state of one system or component, it belongs in `SPEC`. If it defines the bounded assembly of several such artifacts, it belongs in `PACK`.  
+- A package may include references, notes, release framing, and package-level rationale, but it must not silently replace the authority of the underlying member artifacts.  
+- A package is a supporting assembly role, not a new precedence tier above canonical standards.  
+
+**Ownership:**  
+System owner, standards steward, release owner, architecture owner, or other permanently assigned package steward responsible for package composition, member integrity, and version alignment.
+
+**Examples of `PACK` artifacts:**  
+- a LAMS v2 specification package bundling core and companion specifications  
+- a release package for a multi-document platform standard  
+- a bounded compliance package containing a policy, control specification, and evidence schema set  
+
+---
+
+#### `PROC` — Procedure
+**Definition:**  
+A procedure defines the canonical step-by-step method for executing a defined routine process correctly, consistently, and repeatably.
+
+**Use when:**  
+- the work follows a known start-to-finish sequence  
+- consistency is more important than discretion  
+- the process is routine, repeatable, and operationally stable  
+- deviation should be limited or formally controlled  
+
+**Boundary:**  
+- A procedure is primarily executional and usually linear or near-linear.  
+- A procedure should explain how to perform a process, not why the policy exists.  
+- A procedure should not become a broad incident-response, escalation, or scenario-coordination document.  
+- If the artifact is triggered by a situation and contains branching decisions, multi-role coordination, or contingency paths, it likely belongs in `PLAY` instead.  
+
+**Ownership:**  
+Process owner, operations lead, functional manager, or designated workflow owner.
+
+---
+
+#### `PLAY` — Playbook
+**Definition:**  
+A playbook defines a scenario-based response pattern for recurring operational conditions, incidents, risk events, or cross-functional situations. It organizes how the organization responds when a trigger condition occurs.
+
+**Use when:**  
+- the artifact is triggered by a condition, event, or operating scenario  
+- the response includes decision points, branches, or escalation paths  
+- multiple actors or functions may need to coordinate  
+- the artifact orchestrates several procedures under one response model  
+- adaptive response is needed rather than a single fixed sequence  
+
+**Boundary:**  
+- A playbook is situational, not purely routine.  
+- A playbook may call or reference one or more procedures.  
+- A playbook should not replace foundational policy.  
+- A playbook should not be reduced to abstract recommendations alone; otherwise it belongs in `GUID`.  
+
+**Ownership:**  
+Every `PLAY` must have a named **Playbook Steward** — a durable, standing role responsible for the playbook's maintenance, versioning, review cadence, and operational fitness over time. The steward may be an operational domain owner, compliance lead, program lead, or other permanently assigned cross-functional owner. A transient incident owner, response lead, or event-specific coordinator may execute the playbook during a live situation, but they do **not** replace the permanent stewardship requirement.
+
+**Stewardship rule:**  
+- Each `PLAY` must name a permanent steward role.  
+- The steward remains accountable for upkeep after any specific incident, event, or operational cycle ends.  
+- Incident-specific roles may operate the playbook, but stewardship must remain anchored to a standing function.  
+
+**Version convention:**  
+- `v0.x` — TOC stage or drafting stage: structure and scenarios are being developed; playbook is not yet operational.  
+- `v1.0` — Playbook is complete, a steward is named, and the playbook is operationally active.  
+- `v1.x+` — Active revisions: scenario updates, steward changes, or post-incident refinements to an already-active playbook.  
+
+**Lifecycle stage field:**  
+The `playbook_stage` front matter field tracks position within the lifecycle at finer granularity than version alone:  
+- `toc` — structure-only; steward is named; scenario content not yet drafted  
+- `draft` — scenario content in progress; steward is named; playbook is not yet operational  
+- `active` — complete, stewarded, and operationally fit  
+- `retired` — superseded or decommissioned; retained for reference only  
+
+**Status alignment rule:**  
+For `STD-PLAY`, `playbook_stage` is the authoritative lifecycle field and `status` must align as follows:  
+- `toc` or `draft` → `status: draft`  
+- `active` → `status: active`  
+- `retired` → `status: archived`  
+
+A `STD-PLAY` file may not use a `status` value that contradicts its `playbook_stage`.  
+
+---
+
+#### `GUID` — Guideline
+**Definition:**  
+A guideline provides recommended practices, heuristics, judgment aids, and quality-oriented advice in contexts where discretion is allowed.
+
+**Use when:**  
+- the artifact is advisory rather than binding  
+- the goal is to improve judgment, quality, or consistency of thought  
+- multiple valid implementations may exist  
+- the organization wants to encourage better practice without imposing a hard rule  
+
+**Boundary:**  
+- A guideline does not create mandatory obligations unless incorporated by a higher-order artifact.  
+- A guideline should not define the canonical routine process; otherwise it belongs in `PROC`.  
+- A guideline should not define a coordinated scenario-response model; otherwise it belongs in `PLAY`.  
+
+**Ownership:**  
+Subject matter expert, quality lead, architecture lead, practice lead, or functional steward.
+
+---
+
+#### `TEMP` — Template
+**Definition:**  
+A template is a reusable master artifact intended to be copied, completed, or instantiated in order to produce consistent downstream documents or records.
+
+**Use when:**  
+- the primary purpose is to standardize structure or format  
+- the artifact is meant to be filled in by a user or agent  
+- consistency of document shape is more important than narrative instruction  
+
+**Boundary:**  
+- A template is not the governing rule itself.  
+- A template may contain instructions or placeholders, but its primary function is structural reuse.  
+- A template should not absorb policy, procedure, or playbook content except in light support of completion.  
+
+**Ownership:**  
+Artifact owner, documentation owner, governance owner, or process owner responsible for the produced record type.
+
+---
+
+#### `REFR` — Reference
+**Definition:**  
+A reference preserves stable factual, definitional, taxonomic, technical, or lookup-oriented material used for consultation and citation.
+
+**Use when:**  
+- the artifact is mainly consulted rather than executed  
+- the artifact contains definitions, mappings, glossaries, classifications, taxonomies, schemas, or technical facts  
+- the main purpose is stable reference value rather than direction of action  
+
+**Boundary:**  
+- A reference is not prescriptive by itself.  
+- A reference should not be used to hide policy, procedure, or advisory content.  
+- If the artifact directs behavior or mandates compliance, it belongs in `NORM`, `POLI`, or `SPEC` — not `REFR`.  
+
+**Ownership:**  
+Domain steward, documentation steward, system owner, taxonomy owner, or technical authority.
+
+---
+
+### 5.3 Internal relationship and precedence model
+
+When multiple internal standards touch the same subject, their intended relationship is:
+
+```text
+CONS > NORM > POLI > SPEC / PROC / PLAY > GUID
+```
+
+Supporting roles:
+- `PACK` assembles and frames a bounded set of authoritative artifacts without superseding their native authority
+- `TEMP` standardizes reusable artifact structure
+- `REFR` preserves stable lookup and citation material
+
+**Interpretation:**  
+- `CONS` establishes foundational governance authority and core organizing logic.  
+- `NORM` establishes the governed definitional systems — naming conventions, grammars, taxonomies, classification schemes — that policies, specifications, and procedures operate within.  
+- `POLI` establishes mandatory rules, obligations, and accountabilities.  
+- `SPEC` defines the binding technical target state for a system or component.  
+- `PROC` operationalizes a routine process through exact execution steps.  
+- `PLAY` operationalizes a scenario-based response pattern.  
+- `GUID` advises and improves judgment but does not override higher-order artifacts.  
+- `TEMP` supports standardized creation of downstream artifacts.  
+- `REFR` informs other artifacts but does not direct action on its own.  
+
+`PACK` has an assembly role, not a precedence role. It organizes and releases bounded document sets, but canonical authority remains with the packaged member artifacts according to their native classes.
+
+**Why `NORM` sits above `POLI`:**  
+A normative standard defines the definitional and semantic system that policies, specifications, and procedures operate within. You cannot write a conformant policy without knowing the naming standard it must follow, or emit a conformant error code without knowing the error grammar. The definitional layer is therefore a prerequisite of the behavioral layer.
+
+---
+
+### 5.4 Decision rules for class selection
+
+Use the following filing logic when choosing between classes:
+
+#### Choose `CONS` if:
+- the artifact answers "What foundational principles and structural authorities govern this system?"
+- the artifact is foundational, durable, and identity-defining
+- the artifact establishes non-negotiable organizing logic that sits above all other standards
+
+#### Choose `NORM` if:
+- the artifact answers "What is the governed naming convention, grammar, taxonomy, or classification scheme?"
+- the artifact establishes a rule system that is binding company-wide but is definitional rather than behavioral
+- the artifact defines how things are named, coded, or classified — not what must be built or what is required behavior
+- the artifact would apply to humans, agents, validators, and systems alike as a definitional reference
+- examples: a naming standard, an error code grammar, a tag taxonomy, a severity classification framework
+
+#### Choose `POLI` if:
+- the artifact answers "What is required, prohibited, or controlled?"
+- the artifact sets mandatory behavioral rules or authority boundaries
+
+#### Choose `SPEC` if:
+- the artifact answers "What must this system, component, interface, or dataset be or satisfy?"
+- the artifact defines binding technical requirements, schemas, thresholds, models, or compatibility constraints
+- the artifact serves as the design or acceptance benchmark for implementation, validation, or audit comparison
+
+#### Choose `PACK` if:
+- the artifact answers "What documents belong together as one governed package?"
+- the artifact defines package composition, canonical members, and package boundaries
+- the artifact exists to bundle, frame, and release a multi-document standard or specification set
+- the artifact explains how related standards/specifications should be read or consumed together
+- the artifact is more than passive reference, but less than a new normative or technical source of truth
+
+#### Choose `PROC` if:
+- the artifact answers "How is this routine process performed?"
+- the artifact is primarily step-by-step
+- the expected path is fixed or mostly fixed
+- repeatability and execution consistency are the main goals
+
+#### Choose `PLAY` if:
+- the artifact answers "What do we do when this situation happens?"
+- the artifact is triggered by a condition, event, or recurring scenario
+- the response includes branches, escalation, or multi-role coordination
+- the artifact orchestrates one or more procedures under a common response pattern
+
+#### Choose `GUID` if:
+- the artifact answers "What does good practice look like here?"
+- the artifact improves judgment, quality, or decision-making
+- the artifact is advisory rather than mandatory
+- multiple valid approaches are acceptable
+
+#### Choose `TEMP` if:
+- the artifact answers "What structure should this record or document use?"
+- the artifact is mainly intended for copying and completion
+
+#### Choose `REFR` if:
+- the artifact answers "What definitions, mappings, or facts should be consulted?"
+- the artifact is mainly informational and lookup-oriented
+- compliance is not required — it is a reference, not a mandate
+
+---
+
+### 5.5 External classes
+
+| Class | Type |
+| :--- | :--- |
+| `EXTR` | External — industry or third-party standards not authored internally (ISO, NIST, SOC 2, etc.) |
+| `REGL` | Regulatory — mandatory laws, regulations, or formal legal instruments |
+| `ADPT` | Adopted — an external standard or regulatory source that has been explicitly ratified, profiled, or transformed for internal use |
+
+### 5.6 External class definitions and ownership boundaries
+
+#### `EXTR` — External
+**Definition:**  
+A third-party standard, framework, or industry reference maintained by an outside body and preserved internally for reference, mapping, or implementation alignment.
+
+**Ownership:**  
+External issuing body; internal stewardship may be assigned for interpretation or mapping.
+
+**Boundary:**  
+- Not internally authored as a governing artifact.  
+- May inform internal policies, procedures, playbooks, guidelines, and adopted standards.  
+
+---
+
+#### `REGL` — Regulatory
+**Definition:**  
+A law, regulation, rule, directive, or formal legal instrument that imposes binding requirements from an external authority.
+
+**Ownership:**  
+The issuing legal or regulatory authority.
+
+**Boundary:**  
+- Externally binding by force of law or regulation.  
+- Not internally authored, though it may be interpreted or operationalized internally.  
+
+---
+
+#### `ADPT` — Adopted
+**Definition:**  
+An external standard or regulatory source that has been officially ratified, profiled, or transformed for internal operational use.
+
+**Ownership:**  
+Internal governance authority that adopts or ratifies the external material for organizational use.
+
+**Boundary:**  
+- Bridges outside authority into internal operational governance.  
+- Should state or imply the source basis being adopted.  
+- May carry stricter internal interpretation than the original external source if formally approved.  
+
+---
+
+### 5.7 Special rules for IDs and external standards
+
+For `EXTR`, `REGL`, and `ADPT` classes, technical accuracy of the source identifier is prioritized over fixed-width formatting.
+
+- **Internal STD IDs:** use a fixed 4-digit serial (`0001`, `1102`, `0442`).
+- **External-source STD IDs:** use the full actual source identifier (`27001`, `80053`, `2016679`) rather than the last 4 digits.
+- **Slug:** for external-source classes, always start the slug with the issuing body (`iso-`, `nist-`, `eu-`, `pa-`, etc.).
+- **Version:** publication year (`v2022`) or source version (`v5`) is acceptable where that is more accurate than an internal document revision.
+
+This rule exists to preserve machine-readability, source fidelity, and direct mapping between internal adopted standards and their originating external authorities.
+
+### 5.8 Examples
+
+```text
+STD-NORM-0001__organizational-constitution__v1.0.md
+STD-NORM-0001__luphay-naming-standard__v1.0.md
+STD-NORM-0002__luphay-error-standard-core__v0.1.md
+STD-POLI-0015__data-retention-policy__v1.2.md
+STD-SPEC-2001__draco-core-engine-api__v1.0.md
+STD-PACK-0001__lams-v2-specification-package__v0.2.md
+STD-PROC-1102__new-hire-onboarding-procedure__v1.0.md
+STD-PLAY-0310__security-incident-response-playbook__v1.0.md
+STD-GUID-0003__code-review-guideline__v1.0.md
+STD-TEMP-0442__weekly-report-template__v2.0.md
+STD-REFR-0108__risk-severity-classification-reference__v1.1.md
+STD-EXTR-27001__iso-infosec-management-standard__v2022.md
+STD-ADPT-80053__nist-security-privacy-controls-luphay-profile__v5.md
+STD-REGL-2016679__eu-general-data-protection-regulation__v1.0.md
+```
+
+---
+
+## 6. INTL — Intelligence & Research
+
+**Formula:**
+```
+INTL-[CLASS]-[NNNN]__[slug]__vX.Y.md
+```
+
+| Class | Domain |
+| :--- | :--- |
+| `MKTA` | Market Analysis — competitor research, industry trends, SWOT |
+| `TECH` | Technical — deep dives into frameworks, architecture, engineering specs |
+| `ACAD` | Academic — summaries or implementations of papers and journals |
+| `REGI` | Regional — geopolitical or economic intelligence |
+| `FINA` | Financial — financial engineering, risk models, market data |
+| `LITR` | Literature — books, self-study guides, philosophical works |
+| `DATA` | Data Science — exploratory analysis, dataset audits, model testing |
+
+**Domain-specific slug conventions:**
+- `ACAD`: include the primary author's last name in the slug.
+- `REGI`: start the slug with the country code (`sl-` for Sierra Leone, `us-` for United States).
+
+**Version convention:** use `v0.1` for initial bookmarks and raw notes; `v1.0` once synthesized into a usable insight.
+
+**Examples:**
+```
+INTL-ACAD-0112__vaswani-attention-is-all-you-need__v1.0.md
+INTL-REGI-0550__sl-mining-regulatory-landscape__v2.1.md
+INTL-FINA-0882__stochastic-volatility-modeling__v0.9.md
+INTL-LITR-0048__greene-48-laws-implementation-notes__v1.2.md
+INTL-MKTA-0023__competitor-landscape-ai-compliance__v0.2.md
+INTL-TECH-0067__vector-database-architecture-review__v1.0.md
+```
+
+---
+
+## 7. MED — Media & Assets
+
+**Formula:**
+```
+MED-[CLASS]-[NNNN]__[slug]__vX.Y.[ext]
+```
+
+Note: `[ext]` is the native file format. Do not use `.md` for media files.
+
+| Class | Type |
+| :--- | :--- |
+| `LOGO` | Logo — primary branding, icons, and wordmarks |
+| `UIUX` | Interface — app screens, wireframes, and prototype exports |
+| `PHOT` | Photography — general photography or stock images |
+| `PRTR` | Portrait — headshots, portraiture, or family sessions |
+| `VIDO` | Video — motion graphics, raw footage, or rendered clips |
+| `SOCL` | Social — assets sized for LinkedIn, X, YouTube, etc. |
+| `ILLU` | Illustration — vector art, diagrams, or generated imagery |
+| `DOCU` | Document — scanned IDs, certifications, or non-standard PDFs |
+
+**Version convention:**
+- `v0.x` for working/source files (`.psd`, `.fig`, layered files).
+- `v1.0+` for final exports (`.png`, `.svg`, `.mp4`).
+
+**Slug convention:** for portraits and headshots, include the subject name in the slug.
+
+**Examples:**
+```
+MED-LOGO-0001__luphay-primary-wordmark-dark__v1.2.svg
+MED-UIUX-0420__draco-dashboard-compliance-view__v0.8.png
+MED-PRTR-0882__alpha-kamara-headshot-outdoor__v1.0.jpg
+MED-SOCL-0012__youtube-banner-global-commentary__v1.1.png
+MED-ILLU-0034__p3-hierarchy-overview-diagram__v1.0.svg
+MED-VIDO-0009__luphay-product-demo-q1__v1.0.mp4
+```
+
+---
+
+## 8. ADR — Records & Decisions
+
+**Formula:**
+```
+ADR-[CLASS]-[NNNN]__[slug]__vX.md
+```
+
+All ADR files use sequence IDs (`NNNN`). The family contains two kinds of content with different slug and version conventions — meeting-type records and durable decision records.
+
+---
+
+### 8.1 Meeting-type classes
+
+These are temporal records tied to a specific event. Include the date at the start of the slug in `YYYYMMDD` format so files remain scannable and sortable. Version uses a single digit.
+
+| Class | Type |
+| :--- | :--- |
+| `MEET` | Meeting — internal syncs, team huddles, project updates |
+| `BORD` | Board — leadership, stakeholder, or board-level meetings |
+| `CLNT` | Client — external meetings with partners, clients, or vendors |
+| `PERS` | Personal — 1-on-1s, performance reviews, mentorship sessions |
+| `INTV` | Interview — hiring records, candidate feedback, screening notes |
+| `WORK` | Workshop — brainstorming sessions, design sprints, strategy workshops |
+
+**Slug convention:** `[YYYYMMDD]-[description]`
+
+**Version convention:**
+- `v0` for rough notes taken during the session.
+- `v1` for cleaned or approved record distributed to the team.
+
+**Examples:**
+```
+ADR-MEET-0047__20260327-weekly-engineering-sync__v1.md
+ADR-BORD-0012__20260401-q1-portfolio-review-board__v1.md
+ADR-CLNT-0008__20260315-acme-corp-onboarding-call__v1.md
+ADR-INTV-0031__20260520-software-lead-candidate-review__v0.md
+ADR-PERS-0019__20260318-alpha-weekly-checkin__v0.md
+ADR-WORK-0005__20260310-p3-governance-design-sprint__v1.md
+```
+
+---
+
+### 8.2 Durable decision classes
+
+These are versioned, referenceable records that are not tied to a single event date. Use a descriptive slug with no date. Version uses `vX.Y`.
+
+| Class | Type |
+| :--- | :--- |
+| `DECN` | Decision — formal governance decision record. Replaces the `DEC-DEC-[NNNN]` format previously governed by STD-SYS-0001 §8.6. |
+| `ARCH` | Architecture — Architecture Decision Records (ADRs). Replaces the `ADR-[NNNN]` format previously governed by STD-SYS-0001 §8.7. |
+
+**Note on `DECN` and the 4-character rule.** `DEC` is 3 characters. `DECN` is the conformant 4-character form. The concept is identical — a durable record of a formal decision with rationale, alternatives considered, and follow-on actions.
+
+**Note on backcompatibility.** DEC-0001 through DEC-0003 were filed in the old `DEC-DEC-[NNNN]` format. Those files are not renamed. All new decision records use `ADR-DECN-[NNNN]`. The decision register maps both ID spaces.
+
+**Version convention:** `vX.Y` — decisions are versioned documents, not point-in-time snapshots.
+
+**Examples:**
+```
+ADR-DECN-0004__adopt-lns-as-operational-naming-layer__v0.1.md
+ADR-DECN-0005__lns-formula-wins-standards-and-task-packets__v0.1.md
+ADR-ARCH-0001__repo-layout-and-spine-structure__v0.1.md
+ADR-ARCH-0002__agent-routing-capability-based-model__v0.1.md
+```
+
+---
+
+## 9. P3 — Portfolio, Program, and Project Hierarchy
+
+**Formula:**
+```
+P3-[CLASS]-[NNNN]__[slug]__vX.Y.md
+```
+
+P3MS governs hierarchy specification documents — the Portfolio card, Program card, and Project card that define scope, boundaries, goals, ownership, and milestones for each governance node in the P3 framework.
+
+P3MS does not govern task packets (§4 TASK), registers, review packets, or other artifacts that belong to a project but do not define its identity.
+
+| Class | Type |
+| :--- | :--- |
+| `PORT` | Portfolio — collection of programs aligned to a strategic objective |
+| `PROG` | Program — set of related projects managed for combined benefit |
+| `PROJ` | Project — temporary endeavor to create a unique product or capability |
+
+**Version convention:** `v0.x` while the hierarchy node is being scoped; `v1.0` once the node is formally chartered and active.
+
+**Slug convention:** use the entity's short name or code — the name the node is known by inside the organization.
+
+**Examples:**
+```
+P3-PORT-0001__draco-platform__v0.1.md
+P3-PORT-0002__internal-delivery-capability__v1.0.md
+P3-PROG-0004__repo-native-governance__v0.1.md
+P3-PROG-0007__rules-policy-compilation__v1.0.md
+P3-PROJ-0012__task-rollup-engine__v0.1.md
+P3-PROJ-0015__p3-governance-hub__v1.0.md
+```
+
+**Minimum front matter:**
+
+```yaml
+---
+id: P3-PORT-0001
+title: DRACO Platform Portfolio
+class: Portfolio
+status: active
+version: v1.0
+owner:
+strategic_horizon: Now | Next | Later
+created_by:
+created_at:
+---
+```
+
+---
+
+## 10. Violation Reference
+
+Common naming errors and their fixes.
+
+| Anti-pattern | Problem | Fix |
+| :--- | :--- | :--- |
+| `TASK-OPS_-0512__...` | Retired class; trailing underscore illegal | Use `INFR` |
+| `ADR-BRD_-0012__...` | Trailing underscore in class token | Use `BORD` |
+| `ADR-ONE1-0019__...` | Digit in class token; non-standard | Use `PERS` |
+| `TASK-FEAT-1024__user-auth-final__v1.0` | Status word in slug (`final`) | Drop `final`; use front matter `status: active` |
+| `STD-POLI-0015__data-retention-APPROVED__v1.2` | Status in slug | Remove; use front matter `status: approved` |
+| `TASK-CHNG-7__create-register__v1.0` | No leading zeros | Use `0007` |
+| `MED-LOGO-0001__luphay logo dark v1.2.svg` | Spaces in filename | Use hyphens and double underscores per formula |
+| `TASK-DISC-0011__evaluate-options__v0.1.md` | Governing-question class code (old v0.1 style) | Use LNS functional class — e.g. `RESR` or `ARCH` |
+| `REC-MEET-20260327__weekly-sync__v1.md` | Old REC prefix; date in ID position | Use `ADR-MEET-[NNNN]__[YYYYMMDD]-weekly-sync__v1.md` |
+| `ADR-MEET-0047__weekly-sync__v1.md` | Meeting-type class missing date in slug | Add date: `ADR-MEET-0047__20260327-weekly-sync__v1.md` |
+| `DEC-DEC-0004__...` | Old DEC format (retired after DEC-0003) | Use `ADR-DECN-[NNNN]__[slug]__vX.Y.md` |
+| `PORTFOLIO-PORT-0001__...` | Old long-form hierarchy formula | Use `P3-PORT-0001__...` |
+| `PROJECT-PROJ-0012__...` | Old long-form hierarchy formula | Use `P3-PROJ-0012__...` |
+| `TASK-FIXE-0089__hotfix-db-connection-timeout__v0.1.md` | Incident work misclassified as Fix | Use `INCD` |
+| `TASK-REVN-0022__approve-q2-platform-deployment__v1.0.md` | Release work misclassified as Review | Use `RELS` |
+| `STD-PROC-0310__security-incident-response-playbook__v1.0.md` | Scenario-based response pattern misclassified as Procedure | Use `STD-PLAY-0310__security-incident-response-playbook__v1.0.md` |
+| `STD-REFR-2001__draco-core-engine-api__v1.0.md` | Binding technical blueprint misclassified as Reference | Use `STD-SPEC-2001__draco-core-engine-api__v1.0.md` |
+| `STD-EXTR-0053__nist-security-privacy-controls__v5.md` | External/adopted source ID truncated to fit 4 digits | Use full source ID: `STD-ADPT-80053__nist-security-privacy-controls-luphay-profile__v5.md` or `STD-EXTR-80053__...` as applicable |
+| `STD-SPEC-0002__luphay-error-standard-core__v0.1.md` | Normative definitional standard misclassified as Specification | Use `STD-NORM-0002__luphay-error-standard-core__v0.1.md` |
+| `STD-CONS-0002__luphay-error-standard-core__v0.1.md` | Normative definitional standard misclassified as Constitution | Use `STD-NORM-0002__luphay-error-standard-core__v0.1.md` |
+| `STD-REFR-0010__luphay-tag-taxonomy__v0.1.md` | Binding company-wide classification scheme misclassified as Reference | Use `STD-NORM-0010__luphay-tag-taxonomy__v0.1.md` |
+| `STD-REFR-0001__lams-v2-specification-package__v0.2.md` | Governed package artifact misclassified as passive reference | Use `STD-PACK-0001__lams-v2-specification-package__v0.2.md` |
+| `STD-SPEC-0008__lams-v2-specification-package__v0.2.md` | Package wrapper misclassified as technical specification | Use `STD-PACK-0001__lams-v2-specification-package__v0.2.md` |
+
+---
+
+## 11. Front Matter Minimum
+
+Every governed file should carry at minimum:
+
+```yaml
+---
+id: [PREFIX]-[CLASS]-[ID]
+title: [Human readable title]
+status: draft | active | frozen | archived
+version: v0.1
+created_by:
+created_at:
+---
+```
+
+Task files should additionally carry:
+
+```yaml
+packet_class: Discovery | Change | Assurance | Incident | Release
+packet_subtype: [e.g. feature, bugfix, spike, compliance_review]
+governance_mode: Lean | Standard | Assured
+```
+
+Decision records (`ADR-DECN`) should additionally carry:
+
+```yaml
+decision_type: [e.g. Governance, Architecture, Operational]
+scope_level: Enterprise | Portfolio | Program | Project
+effective_date:
+related_artifacts:
+supersedes:
+```
+
+Playbook files (`STD-PLAY`) should additionally carry:
+
+```yaml
+playbook_steward:
+playbook_stage: toc | draft | active | retired
+review_cadence: [e.g. quarterly, post-incident, annual]
+last_reviewed:
+```
+
+For `STD-PLAY`, `playbook_steward` is mandatory at every stage. `playbook_stage` governs the allowed `status` value:
+- `toc` or `draft` → `status: draft`
+- `active` → `status: active`
+- `retired` → `status: archived`
+
+Package files (`STD-PACK`) should additionally carry:
+
+```yaml
+package_scope: [system | release | standard-suite | compliance-bundle]
+package_members:
+  - id:
+    role: canonical | companion | reference | appendix
+package_owner:
+canonical_entrypoint:
+release_alignment:
+supersedes_package:
+```
+
+P3 hierarchy documents (`P3-PORT`, `P3-PROG`, `P3-PROJ`) should additionally carry:
+
+```yaml
+class: Portfolio | Program | Project
+strategic_horizon: Now | Next | Later
+owner:
+```
+
+Status, owner, priority, and classification live in front matter — never in the filename.
+
+---
+
+*LNS v1.1 — Luphay Technologies — Operational naming layer*  
+*Document ID: STD-NORM-0001 (alias: STD-CONS-0001 — retained for backward compatibility)*  
+*Governance layer: STD-SYS-0001 (FROZEN)*  
+*Decision basis: DEC-0002, DEC-0003, ADR-DECN-0004, ADR-DECN-0005, ADR-DECN-0008, ADR-DECN-0009, ADR-DECN-TBD (PLAY lifecycle governance refinement), ADR-DECN-0011 (add NORM class; re-register LNS as STD-NORM-0001), ADR-DECN-0013 (add PACK class)*

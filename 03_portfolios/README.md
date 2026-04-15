@@ -12,4 +12,9 @@
 
 ## Included example
 
-This scaffold includes one example portfolio with one nested program, one project, and one task packet.
+This scaffold currently includes one sample/template portfolio hierarchy with
+one nested program, one project, and one task packet.
+
+The committed `P3-PORT-0001__human-friendly-title/` lane is a structural
+pattern reference only. Do not treat it as a live production portfolio set
+unless Alpha explicitly authorises a new governed lane.

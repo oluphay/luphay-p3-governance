@@ -2,6 +2,12 @@
 
 This document describes the structural logic of `luphay-p3-governance` for a new agent or human contributor who needs to understand not just what the structure is, but why it was built that way. Navigation documents — `README.md`, `START_HERE.md`, and `AGENTS.md` — tell you where to go; this document explains the reasoning behind the design so that every structural choice is legible and every constraint is traceable to its purpose.
 
+Current-state note: the committed `03_portfolios/` hierarchy is presently a
+sample/template scaffold rather than a live production portfolio set.
+`04_docs/operations/p3-live-workflow.md` is the canonical workflow reference
+for now, and `05_hub/` remains near-term local staging rather than a fully
+canonical intake lane.
+
 ---
 
 ## The five zones
@@ -18,15 +24,15 @@ The repo root is organised into five conceptual zones, each carrying a distinct 
 
 The Governance zone (`01_governance/`) is the source of all rules. It contains the naming standard, the framework document that defines the P3 hierarchy, playbooks that encode repeatable operating procedures, and the decisions register. Nothing in this zone is operational — it defines; it does not act.
 
-The Execution instruments zone bridges definition and work. `02_templates/` contains governed templates that operationalise the standards in `01_governance/` — every new portfolio, program, project, or task packet begins from a template, ensuring structural contracts are enforced at creation time rather than enforced after the fact. `03_portfolios/` houses all live governed work: the actual objects that agents and humans create, manage, and complete.
+The Execution instruments zone bridges definition and work. `02_templates/` contains governed templates that operationalise the standards in `01_governance/` — every new portfolio, program, project, or task packet begins from a template, ensuring structural contracts are enforced at creation time rather than enforced after the fact. `03_portfolios/` is the canonical home for governed object hierarchies. In the current committed baseline, it carries the sample/template scaffold and any future curated governed artifacts rather than a standing live production portfolio set.
 
 The Reference and operations zone (`04_docs/`) holds the documents that describe the repo itself — this architecture overview, the canonical path registry (`REPO_PROFILE.md`), and operating notes that are not governance rules. It is also the home of the machine-readable identity snapshot that every agent reads during cold-start to resolve navigable paths.
 
-The Flow control zone (`05_hub/`) is the controlled entry point for all new work. Objects are proposed, staged, and reviewed here before being promoted into `03_portfolios/`. Nothing enters the governed hierarchy without passing through the hub, which enforces quality gates without polluting the live work zone with incomplete or unreviewed objects.
+The Flow control zone (`05_hub/`) remains important, but its current posture is intentionally narrower. In the near term it serves as local staging for intake, output review, and stable storage references, while the durable contract is expressed through the tracked `README.md` files. The repo is not yet treating `05_hub/` as a fully canonical intake-and-promotion lane for all governed work.
 
 The Machine layer (`06_state/`, `07_scripts/`, `08_command/`, `09_runs/`) serves the operational mechanics of the system. `06_state/` holds both human-authored cross-cutting YAML and the derived JSON registers that agents query. `07_scripts/` provides validation and state rebuild tooling. `08_command/` is a deferred command surface not yet active — it requires an authorising ADR before use. `09_runs/` is gitignored ephemeral scratch space for agent runtime output.
 
-The zones follow a conceptual flow: definition (governance) → operationalisation (templates) → execution (portfolios) → control (hub) → reflection (state). A new object always enters through the hub and exits into portfolios. State always reflects portfolios — it never defines them.
+The zones follow a conceptual flow: definition (governance) → operationalisation (templates) → governed object homes (portfolios) → optional local staging (hub) → reflection (state). State always reflects governed artifacts — it never defines them.
 
 ---
 

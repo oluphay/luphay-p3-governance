@@ -1,29 +1,52 @@
 {
   "register": "program-register",
-  "generated_on": "2026-03-29",
+  "generated_on": "2026-04-01",
   "items": [
     {
-      "id": "P3-PROG-0001",
-      "object_type": "program",
-      "title": "Human Friendly Title",
-      "slug": "human-friendly-title",
-      "version": "0.1",
-      "status": "active",
-      "owner": "TBD",
-      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title",
-      "primary_doc": "P3-PROG-0001__human-friendly-title__v0.1.md",
-      "parent_id": "P3-PORT-0001",
-      "created_on": "2026-03-29",
-      "updated_on": "2026-03-29",
       "labels": [
         "program",
         "scaffold",
         "example"
       ],
-      "dependencies": [],
+      "updated_on": "2026-03-29",
+      "status": "active",
+      "version": "0.1",
+      "title": "Human Friendly Title",
+      "parent_id": "P3-PORT-0001",
+      "primary_doc": "P3-PROG-0001__human-friendly-title__v0.1.md",
+      "slug": "human-friendly-title",
+      "id": "P3-PROG-0001",
+      "owner": "TBD",
+      "object_type": "program",
       "children": [
         "projects/P3-PROJ-0001__human-friendly-title"
-      ]
+      ],
+      "dependencies": [],
+      "path": "03_portfolios/P3-PORT-0001__human-friendly-title/programs/P3-PROG-0001__human-friendly-title",
+      "created_on": "2026-03-29"
+    },
+    {
+      "labels": [
+        "p3",
+        "readiness",
+        "live"
+      ],
+      "updated_on": "2026-04-01",
+      "status": "active",
+      "version": "0.1",
+      "title": "Operational Readiness",
+      "parent_id": "P3-PORT-0002",
+      "primary_doc": "P3-PROG-0002__operational-readiness__v0.1.md",
+      "slug": "operational-readiness",
+      "id": "P3-PROG-0002",
+      "owner": "Alpha",
+      "object_type": "program",
+      "children": [
+        "projects/P3-PROJ-0002__activate-p3-for-daily-use"
+      ],
+      "dependencies": [],
+      "path": "03_portfolios/P3-PORT-0002__p3-live-operations/programs/P3-PROG-0002__operational-readiness",
+      "created_on": "2026-04-01"
     }
   ]
 }

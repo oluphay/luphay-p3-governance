@@ -2,8 +2,9 @@
 # P3 repo publication rules
 # =========================
 
-# Exclude from GitHub for now
-03_portfolios/
+# Live governed work must stay versioned in Git.
+# 05_hub remains a local staging surface until hub promotion is adopted as a
+# durable workflow.
 05_hub/
 
 # Ephemeral runtime outputs

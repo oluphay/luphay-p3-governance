@@ -1,28 +1,50 @@
 {
   "register": "portfolio-register",
-  "generated_on": "2026-03-29",
+  "generated_on": "2026-04-01",
   "items": [
     {
-      "id": "P3-PORT-0001",
-      "object_type": "portfolio",
-      "title": "Human Friendly Title",
-      "slug": "human-friendly-title",
-      "version": "0.1",
-      "status": "active",
-      "owner": "TBD",
-      "path": "03_portfolios/P3-PORT-0001__human-friendly-title",
-      "primary_doc": "P3-PORT-0001__human-friendly-title__v0.1.md",
-      "created_on": "2026-03-29",
-      "updated_on": "2026-03-29",
       "labels": [
         "portfolio",
         "scaffold",
         "example"
       ],
-      "dependencies": [],
+      "updated_on": "2026-03-29",
+      "status": "active",
+      "version": "0.1",
+      "title": "Human Friendly Title",
+      "path": "03_portfolios/P3-PORT-0001__human-friendly-title",
+      "primary_doc": "P3-PORT-0001__human-friendly-title__v0.1.md",
+      "slug": "human-friendly-title",
+      "id": "P3-PORT-0001",
+      "owner": "TBD",
+      "object_type": "portfolio",
       "children": [
         "programs/P3-PROG-0001__human-friendly-title"
-      ]
+      ],
+      "dependencies": [],
+      "created_on": "2026-03-29"
+    },
+    {
+      "labels": [
+        "p3",
+        "live",
+        "operations"
+      ],
+      "updated_on": "2026-04-01",
+      "status": "active",
+      "version": "0.1",
+      "title": "P3 Live Operations",
+      "path": "03_portfolios/P3-PORT-0002__p3-live-operations",
+      "primary_doc": "P3-PORT-0002__p3-live-operations__v0.1.md",
+      "slug": "p3-live-operations",
+      "id": "P3-PORT-0002",
+      "owner": "Alpha",
+      "object_type": "portfolio",
+      "children": [
+        "programs/P3-PROG-0002__operational-readiness"
+      ],
+      "dependencies": [],
+      "created_on": "2026-04-01"
     }
   ]
 }
